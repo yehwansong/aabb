@@ -1,0 +1,1201 @@
+
+<!-- saved from url=(0077)http://skin-skin12.addseoul.cafe24.com/layout/basic/header.html?PREVIEW_SDE=1 -->
+<html class="fa-events-icons-ready"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="./animate.css"><link rel="stylesheet" href="./zew1dna.css"><!-- font-awesome --><script src="./8af6c1b3d2.js"></script><link rel="stylesheet" href="./8af6c1b3d2.css" media="all"><!-- font --><link href="./nanumgothic.css" rel="stylesheet" type="text/css"><link href="./notosanskr.css" rel="stylesheet" type="text/css"><!-- js --><script src="./jquery-3.2.1.min.js"></script><script>
+$(document).ready(function(){
+	$('.product>.thumb>img').css({width: '80px'})
+        if(window.location.href.split('#home')[1]===''){
+            console.log(window.location.href.split("#home")[0])
+            $('.white').attr('href',window.location.href.split("#home")[0])
+        }
+})
+    
+    
+    
+    
+</script><script>
+        console.log(window.location.href.split('/').indexOf('order')>-1)
+        if(window.location.href.split('/').indexOf('myshop')>-1||window.location.href.split('/').indexOf('order')>-1|| window.location.href.split('/').indexOf('board')>-1||window.location.href.split('/').indexOf('join.html')>-1){
+            $('body').addClass('subpage')
+            }
+    </script><style>
+    header {
+        top: 0; 
+        left:0px;
+        box-sizing: border-box;
+        background: #fff;
+        -webkit-transition: all 0.3s ease-out;
+        transition: all 0.3s ease-out;
+    }
+
+  #wrap  header.fixed {
+        position: fixed;
+        width: 100%;
+        left: 0;
+        z-index: 99;
+        top: 0; background: rgba(255,255,255,.8);
+        -webkit-box-shadow: 0px 13px 9px -11px rgba(230,230,230,0.54);
+		-moz-box-shadow: 0px 13px 9px -11px rgba(230,230,230,0.54);
+		box-shadow: 0px 13px 9px -11px rgba(230,230,230,0.54);
+    }
+
+        header .heaer-box {
+            width: 1024px;
+            margin: 0 auto;
+        }
+    header .logo {
+        width: 30%;
+        float: left; margin:20px 0 0;
+    }
+
+    header.fixed .logo{margin: 10px 0 0; }
+    
+    .heaer-box .logo .bottom {
+        display: none;
+    }
+
+    header .mRight {
+        width: 70%;
+        float: right;
+        text-align: right;
+        position: relative;
+    }
+
+    .dropDownMenu li,
+    header .loginBox li {
+        display: inline-block;
+    }
+
+    header .loginBox{margin: 10px 0 0; }
+    header .loginBox a {
+        font-size: 12px;
+        line-height: 12px;
+        margin-bottom: 1vh;
+        padding:0 10px;
+        display: inline-block;
+        border-right: 1px solid #000;
+    }
+
+    header .loginBox li:last-child a {
+        border-right: none;
+        padding-left: 10px;
+        padding-top:0px;
+        padding-bottom:2vh;
+        margin:0
+    }
+
+    .dropDownMenu,
+    .dropDownMenu ul {
+        z-index: 999;
+    }
+
+    .dropDownMenu > li {
+        padding: 0 13px;
+    }
+
+    .dropDownMenu > li:hover {
+        background-image: url('/web/upload/supload/img/icon/point.png');
+        background-repeat: no-repeat;
+        background-position: bottom center; transition:none;
+    }
+
+    .dropDownMenu .b-title,
+    .dropDownMenu li a,
+    .dropDownMenu i {
+        line-height: 65px;
+        font-size: 15px;
+        letter-spacing: 1px;
+        font-weight: 500;
+        color: #000;
+    }
+
+    header .cart-conut {
+        color: #fff;
+        background: #424242;
+        padding: 0 10px;
+        margin: 0 0 0 3px;
+    }
+
+    .dropDownMenu .b-title:hover,
+    .dropDownMenu i:hover,
+    .dropDownMenu a:hover {
+        color: #81d8d0;
+    }
+
+    /* Level 1 Drop Down */
+    .dropDownMenu > li.xans-layout-orderbasketcount {
+        padding: 0 25px 0 0;
+    }
+
+    /* Level 2 */
+    .dropDownMenu > li > ul {
+        text-align: center;
+        display: none;
+        height: auto;
+        background: #000;
+        position: fixed;
+        width: 100%;
+        left: 0;
+        padding: 10px 0;
+        z-index: 999;
+    }
+
+    .dropDownMenu > li > ul li {
+        margin: 0;
+        padding: 0 12px;
+        height: auto;
+    }
+
+    .dropDownMenu > li > ul a {
+        line-height: 40px;
+        font-size: 14px;
+        letter-spacing: 1px;
+        color: #fff;
+        font-weight: 300;
+        height: auto;
+    }
+
+    .dropDownMenu > li > ul li:hover a,
+    .dropDownMenu > li > ul i:hover {
+        color: #FFD099;
+    }
+    
+    
+    
+    
+    
+
+    header .mRight {
+        z-index:100;
+        transform: translateX(-50%);
+        width: 40vh;
+        left: 50%;
+        top: 6.5vh;
+        float: left;
+        position: absolute;
+        text-align: center;
+        transition: all 0.3s ease-out;
+        opacity:0;
+        pointer-events:none
+    }  
+.opacity_1{
+        pointer-events:all !important;
+        opacity:1 !important
+    }
+.invert_1{
+        pointer-events:all !important;
+   	 background-color: black !important;
+        }
+    .white{
+        opacity:0}
+.invert_1 .white{
+        opacity:1}
+.invert_1 .black{
+        opacity:0}
+        .mRight *{
+            padding:0;
+        	transition: all 0.3s ease-out;
+    		color:white !important;
+    		background-color:black !important;
+            }
+    .dropDownMenu{
+    padding-top: 0.5vh;
+}
+        .dropDownMenu > li {
+            display: block;
+        }
+        a {
+            text-decoration: none;
+            color: #000;
+            font-size: 100%;
+        }
+        header{
+            background-color: white;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+        header .loginBox{
+			margin:0 !important
+        }
+        header .logo {
+            width: 40vh;
+            height:5.5vh;
+            float: left;
+            margin: 0px 0 0;
+            left: 50%;
+            position: absolute;
+            transform: translateX(-50%);
+        }
+        body{
+            margin:0
+        }
+    	.header-box{
+            z-index: 100;
+            width: 100% !important;
+            height: 7.5vh;
+            position: absolute;
+            background: white;
+            padding-top:1vh;
+            box-sizing:border-box
+
+            }
+        .header-box>.logo>a{
+            padding-top: 0.5vh;
+            padding-bottom:0.5vh;
+            top: 0;
+            height: 100%;
+            width: calc(100% - 12vh);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            box-sizing: border-box;
+        }
+        .header-box>.logo{
+            background-size:contain;
+            background-repeat:no-repeat;
+            background-position:right;
+            background-color:white;
+            transition:all 0.3s ease-out
+            }
+        .header-box>.logo>.logo_w{
+	        transition: all 0.3s ease-out;
+            background-color:black;
+            z-index:10 ;
+            opacity:0;
+            pointer-events:none
+        }
+        .header-box>.logo>a>img{
+            height: 100%;
+            left: 50%;
+            transform: translateX(-50%) scale(0.9);
+            position: relative;
+            transform-origin: bottom;
+        }
+        .dropDownMenu > li {
+            height: 4vh;
+        }
+        .dropDownMenu > li:hover {
+            background-image:none
+        }
+        .dropDownMenu li a{
+            padding-top: 0.5vh;
+            display: block;
+            position: relative;
+            padding-top: 1vh;
+        }
+    	#brand_id{
+    		height: 55vh;
+            position: relative;
+            }
+    	#brand_id span{
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            left: 0;
+            transform: translateY(-50%);
+                }
+.shopCategory h2{
+    font-weight: 500;
+    padding:0 !important;
+    margin:0 !important;
+    }
+.shopCategory .position > ul > li,
+.shopCategory h2{
+    height:4vh
+    }
+.shopCategory .position > ul > li > a,
+.shopCategory h2>span {
+    line-height: 1.4;
+    height: 100%;
+    }
+.prdList .description{
+    padding: 0px 0px !important;
+    padding-top:1vh !important;
+    padding-bottom: 20px !important;
+    }
+.ec-base-product .spec li {
+		margin: 0px 0 0 0 !important;
+    }
+#category .position > ul > li {
+    vertical-align: top;
+    }   
+      /* 대분류 */
+    .xans-layout-category .position > ul > li > a { color:#2e2e2e; }
+    .xans-layout-category .position > ul > li > a:hover,
+    .xans-layout-category .position > ul > li.selected > a,
+    .xans-layout-category .position > ul > li.on > a { color:#81d8d0; }
+    
+    /* 바 색상 */
+    .color-bar{ background: #707070; }
+    
+    /* 카테고리 */    
+    .xans-product-menupackage .title .likeButton button {color:#9a9a9a;}
+    .xans-product-menupackage .title .likeButton.selected button { color:#353535; }
+    
+    .shopCategory .xans-product-menupackage .menuCategory > li,
+    .boardCategory .xans-layout-boardinfo li{border-right:1px solid #81d8d0; }
+    .shopCategory .xans-product-menupackage .menuCategory > li:last-child,
+    .boardCategory .xans-layout-boardinfo li:last-child{border:none; }
+    
+    .xans-product-menupackage .menuCategory > li > a {color:#2e2e2e;}
+    .xans-product-menupackage .menuCategory > li > a:hover,
+    .xans-product-menupackage .menuCategory > li.selected > a { color:#81d8d0; }
+    .xans-product-menupackage .menuCategory > li > ul > li > a { color:#575a63; }
+    .xans-product-menupackage .menuCategory > li > ul > li > a:hover,
+    .xans-product-menupackage .menuCategory > li > ul > li.selected > a { color:#81d8d0; }
+    
+    .xans-product-menupackage .subCategory { border:1px solid #565960; background:#fff;}
+    .xans-product-menupackage .subCategory li a { color:#575a63; }
+    .xans-product-menupackage .subCategory li a:hover,
+    .xans-product-menupackage .subCategory li.selected a { color:#81d8d0; }
+    
+    .shopCategory,
+    .lookbookCategory,
+    .boardCategory{display: none; 
+     width:calc(100% - 100px)}
+    
+    .boardCategory .xans-layout-boardinfo{text-align: center; font-size: 0; line-height: 0;}
+    .boardCategory .xans-layout-boardinfo li{margin: 9px 0; padding: 0 20px; }
+    .boardCategory .xans-layout-boardinfo a{ font-size: 14px; font-weight: 400; line-height: 14px; letter-spacing:1px; display: inline-block;}
+    
+    .lookbookCategory .xans-product-menupackage .menuCategory > li {padding:0px 20px; }
+
+     
+     
+.shopCategory {
+    position: fixed !important;
+    top: 7vh;
+    z-index: 10;
+    background: white;
+    width: 100%;
+}
+.shopCategory .inner {
+    width: 100vw;
+    padding-left: 50px;
+    padding-right: 50px;
+    float: left;
+}
+.shopCategory .position > ul > li, .shopCategory h2 {
+    height: 2vh;
+}
+.shopCategory h2 {
+    text-align:center
+}
+     
+#category,.shopCategory .title{
+    display:none
+}
+.shopCategory #category .position > ul > li > a{
+    padding: 0 1.5vh !important;
+}
+.shopCategory {
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+}
+.shopCategory h2{
+    font-weight: 500;
+    padding:0 !important;
+    margin:0 !important;
+    }
+.shopCategory .position > ul > li,
+.shopCategory h2{
+    height:2vh
+    }
+.shopCategory .position > ul > li{
+    position: relative;
+    z-index: 10;
+    display: inline-block;}
+.shopCategory .position > ul > li > a,
+.shopCategory h2>span {
+    line-height: 1.4;
+    height: 100%;
+    }
+.prdList .description{
+    padding: 0px 0px !important;
+    padding-bottom: 2vh!important;
+    }
+.ec-base-product .spec li {
+        margin: 0px 0 0 0 !important;
+    }
+     
+.block{
+    display:block !important;
+    opacity:1 !important
+}
+.bottom_sub,.top_sub{
+    display:none
+}
+.path{
+     display:none
+}
+     
+     
+     
+   
+.lookbookCategory .inner .titlle{
+         margin:0
+    }
+.lookbookCategory .title,.lookbookCategory .menuCategory{
+    display:none;
+    opacity:0
+    }
+.lookbookCategory .menuCategory{
+    background: white;
+}
+.menuCategory li{
+    margin:0 !important;
+    border-color:black !important
+}
+.menuCategory li a{
+    font-weight: 300 !important;
+}
+    #dropdown_icon,
+    #menu_icon{
+    position: absolute;
+    top: -50%;
+    transform: translateY(50%);
+    /* padding-top: 1vh; */
+    width: 6.5vh;
+    height: 100%;
+    }
+    #dropdown_icon img,
+    #menu_icon img{
+    height: 100%;
+        position:absolute;
+        top:0
+    }
+    #menu_icon{
+    transform-origin:left}
+    #dropdown_icon{
+    transform-origin: right;
+    position: absolute;
+    right: 0;
+    top: -50%;
+    transform: translateY(50%);
+        }
+    .header-box{
+        left:0
+            }
+</style></head><body style="overflow-y: scroll;"><header><div class="header-box">
+        <div class="xans-element- xans-layout xans-layout-logotop logo "><div id="dropdown_icon" class="dropdown">
+            	<img class="black" src="./dropdown-01.svg">
+            	&nbsp;<img class="white" src="./dropdown-01_w.svg">
+       		&nbsp;</div>
+<div id="menu_icon" class="dropdown">
+            	<img class="black" src="./dropdown-02.svg">
+            	&nbsp;<img class="white" src="./dropdown-02_w.svg">
+       		&nbsp;</div>
+<a class="black" href="http://skin-skin12.addseoul.cafe24.com/index.html#home"><img src="./ADD_LOGO.svg"></a>
+<a class="white" href="http://skin-skin12.addseoul.cafe24.com/index.html#home"><img src="./ADD_LOGO_w.svg"></a>
+</div>
+        <div class="mRight">
+            <ul class="dropDownMenu"><li><a href="http://skin-skin12.addseoul.cafe24.com/concept.html">SEASON CONCEPT</a></li>
+                <li><a href="http://skin-skin12.addseoul.cafe24.com/product/list.html?cate_no=42">SHOP</a></li>
+                <li><a href="http://skin-skin12.addseoul.cafe24.com/lookbook/list.html?cate_no=75">LOOKBOOK</a></li>
+                <li><a href="http://skin-skin12.addseoul.cafe24.com/stockist/index.html">STOCKIST</a></li>
+                <li><a href="http://skin-skin12.addseoul.cafe24.com/lookbook/list.html?cate_no=72">PRESS</a></li>
+                <li><a href="http://skin-skin12.addseoul.cafe24.com/contact.html">CONTACT</a></li>
+            </ul><div id="brand_id">
+				<span>ADD [ad] noun a cool brand for cool dudes</span>
+			</div>
+            <ul class="loginBox"><li class="board"><a href="http://skin-skin12.addseoul.cafe24.com/board/free/list.html?board_no=1">BOARD</a></li>
+                <li><a href="http://skin-skin12.addseoul.cafe24.com/myshop/index.html">ACCOUNT</a></li>
+                <li><a href="http://skin-skin12.addseoul.cafe24.com/order/basket.html" class="xans-element- xans-layout xans-layout-orderbasketcount ">CART 
+<span class="cart-conut">8</span>
+</a>
+</li>
+                
+                <li><a href="http://skin-skin12.addseoul.cafe24.com/member/login.html" class="xans-element- xans-layout xans-layout-statelogoff ">LOGIN
+</a>
+</li>
+                <li></li>
+                
+                <!--<li><a href="/member/join.html" module="Layout_statelogoff">JOIN</a></li>-->
+                <!--<li><a href="/member/modify.html" module="Layout_statelogon">EDIT</a></li>-->
+                
+                <!--<li><a href="/myshop/order/list.html" title="order">ORDER</a></li>-->
+            </ul></div>
+    </div>
+
+</header><style>
+    /* 대분류 */
+    .xans-layout-category .position > ul > li > a { color:#2e2e2e; }
+    .xans-layout-category .position > ul > li > a:hover,
+    .xans-layout-category .position > ul > li.selected > a,
+    .xans-layout-category .position > ul > li.on > a { color:#81d8d0; }
+    
+    /* 바 색상 */
+    .color-bar{ background: #707070; }
+    
+    /* 카테고리 */    
+    .xans-product-menupackage .title .likeButton button {color:#9a9a9a;}
+    .xans-product-menupackage .title .likeButton.selected button { color:#353535; }
+    
+    .shopCategory .xans-product-menupackage .menuCategory > li,
+    .boardCategory .xans-layout-boardinfo li{border-right:1px solid #81d8d0; }
+    .shopCategory .xans-product-menupackage .menuCategory > li:last-child,
+    .boardCategory .xans-layout-boardinfo li:last-child{border:none; }
+    
+    .xans-product-menupackage .menuCategory > li > a {
+        color:#2e2e2e;}
+    .xans-product-menupackage .menuCategory > li > a:hover,
+    .xans-product-menupackage .menuCategory > li.selected > a { color:#81d8d0; }
+    .xans-product-menupackage .menuCategory > li > ul > li > a { color:#575a63; }
+    .xans-product-menupackage .menuCategory > li > ul > li > a:hover,
+    .xans-product-menupackage .menuCategory > li > ul > li.selected > a { color:#81d8d0; }
+    
+    .xans-product-menupackage .subCategory { border:1px solid #565960; background:#fff;}
+    .xans-product-menupackage .subCategory li a { color:#575a63; }
+    .xans-product-menupackage .subCategory li a:hover,
+    .xans-product-menupackage .subCategory li.selected a { color:#81d8d0; }
+    
+    .shopCategory,
+    .lookbookCategory,
+    .boardCategory{display: none; 
+     width:calc(100% - 40px)}
+    
+    .boardCategory .xans-layout-boardinfo{text-align: center; font-size: 0; line-height: 0;}
+    .boardCategory .xans-layout-boardinfo li{margin: 0px 0; padding: 0 0px; }
+    .boardCategory .xans-layout-boardinfo a{ font-size: 14px; font-weight: 400; line-height: 14px; letter-spacing:1px; display: inline-block;}
+    
+    .lookbookCategory .xans-product-menupackage .menuCategory > li {padding:0px 20px; text-align:left}
+
+     
+    .shopCategory .xans-product-menupackage .menuCategory > li, .boardCategory .xans-layout-boardinfo li{
+        border:0px !important;
+    padding-left: 1vh;
+    padding-right: 1vh;}
+     
+.shopCategory {
+    position: fixed !important;
+    top: 7vh;
+    z-index: 10;
+    background-color:white;
+    padding-bottom:1vh;
+    width:100%
+}
+.shopCategory .inner {
+    width: 100vw;
+    padding-left: 50px;
+    padding-right: 50px;
+    float: left;
+}
+.shopCategory .position > ul > li, .shopCategory h2 {
+    height: 2vh;
+}
+.shopCategory h2 {
+    text-align:center
+    font-weight: 500;
+    padding: 0 !important;
+    margin: 0 !important;
+    height: 4vh;
+}
+     
+#category,.shopCategory .title{
+    display:none
+}
+.shopCategory #category > ul{
+    text-align: center;
+}
+.shopCategory #category > ul > li{  
+    vertical-align: top;
+    display: inline-block;
+    padding-left: 1vh;
+    padding-right: 1vh;
+}
+.boardCategory,
+.lookbookCategory,
+.shopCategory {
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+}
+.shopCategory .position > ul > li,
+.shopCategory h2{
+    height:2vh
+    }
+.shopCategory .position > ul > li{
+    position: relative;
+    z-index: 10;
+    display: inline-block;}
+.shopCategory .position > ul > li > a,
+.shopCategory h2>span {
+    line-height: 1.4;
+    height: 100%;
+    }
+.prdList .description{
+    padding: 0px 0px !important;
+    padding-bottom: 2vh !important;
+    }
+.ec-base-product .spec li {
+        margin: 0px 0 0 0 !important;
+    }
+     
+.block{
+    display:block !important;
+    opacity:1 !important
+}
+.blockflex{
+    display:flex !important;
+    opacity:1 !important
+}
+.bottom_sub,.top_sub{
+    display:none
+}
+.path{
+     display:none
+}
+     
+     
+#wrap .lookbookCategory {
+    position: fixed !important;
+    top: 7vh;
+    z-index: 10;
+         }
+   
+.lookbookCategory .inner .titlle{
+         margin:0
+    }
+.lookbookCategory .title,.lookbookCategory .menuCategory{
+    display:none;
+    opacity:0
+    }
+.menuCategory li{
+    margin:0 !important;
+    border-color:black !important
+}
+.menuCategory li a{
+    font-weight: 300 !important;
+}
+    .boardCategory{
+    width: auto;
+    float: left;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    top: 7vh !important;
+    display: block;}
+    .xans-layout-boardinfo{display:flex}
+    .boardCategory li{display:none}
+</style><link rel="canonical" href="http://add-seoul.com/layout/basic/header.html">
+<link rel="alternate" href="http://m.add-seoul.com/layout/basic/header.html">
+<meta property="og:url" content="http://add-seoul.com/layout/basic/header.html">
+<meta property="og:site_name" content="ADD SEOUL">
+<meta property="og:type" content="website">
+
+            <script type="text/javascript">
+                var EC_FRONT_EXTERNAL_SCRIPT_VARIABLE_DATA = {"common_member_id_crypt":"b04068b7d95ee5dc55425cd2f9230928eafda17fd36cb1dc07e2d84c53836d2a"};
+            </script>
+            
+<script type="text/javascript">var EC_SDE_SHOP_NUM = 1;var SHOP = {getLanguage : function() { return "ko_KR"; },getCurrency : function() { return "KRW"; },getFlagCode : function() { return "KR"; },getTimezone: function() { return "Asia/Seoul" },isMultiShop : function() { return true; },isDefaultShop : function() { return true; },isDefaultLanguageShop : function(sLanguageCode) { return SHOP.isDefaultShop() && SHOP.isLanguageShop(sLanguageCode); },isKR : function() { return true; },isUS : function() { return false; },isJP : function() { return false; },isCN : function() { return false; },isTW : function() { return false; },isES : function() { return false; },isPT : function() { return false; },isVN : function() { return false; },isLanguageShop : function(sLanguageCode) { return sLanguageCode === "ko_KR"; },getDefaultShopNo : function() { return 1; },getProductVer : function() { return 2; },isSDE : function() { return true; },isMode : function() {return false; },isExperienceMall : function() { return false; },getAdminID : function() {return 'addseoul'},getMallID : function() {return 'addseoul'}};var EC_COMMON_UTIL = {convertSslForString : function(sString) { return sString.replace(/http:/gi, '');},convertSslForHtml : function(sHtml) { return sHtml.replace(/((?:src|href)\s*=\s*['"])http:(\/\/(?:[a-z0-9\-_\.]+)\/)/ig, '$1$2');},getProtocol : function() { return 'http'; },moveSsl : function() { if (EC_COMMON_UTIL.getProtocol() === 'http') { var oLocation = jQuery(window.location); var sUrl = 'https://' + oLocation.attr('host') + oLocation.attr('pathname') + oLocation.attr('search'); window.location.replace(sUrl); } }};var EC_SHOP_LIB_INFO = {getBankInfo : function() { 
+            var oBankInfo = "";
+            $.ajax({
+                type: "GET",
+                url: "/exec/front/Shop/Bankinfo",
+                dataType: "json",
+                async: false,
+                success: function(oResponse) {
+                    oBankInfo = oResponse;
+                }
+             });
+             return oBankInfo; }};</script><script type="text/javascript">            var EC_ROOT_DOMAIN = "cafe24.com";
+            var EC_TRANSLATE_LOG_STATUS = "F";
+            var EC_GLOBAL_INFO = (function() {
+                var oData = {"base_domain":"addseoul.cafe24.com","root_domain":"cafe24.com","is_global":false,"country_code":"KR","language_code":"ko_KR","admin_language_code":"ko_KR"};
+                
+                return {
+                    getBaseDomain: function() {
+                        return oData['base_domain'];
+                    },
+
+                    getRootDomain: function() {
+                        return oData['root_domain'];
+                    },
+
+                    isGlobal: function() {
+                        return oData['is_global'];
+                    },
+
+                    getCountryCode: function() {
+                        return oData['country_code'];
+                    },
+
+                    getLanguageCode: function() {
+                        return oData['language_code'];
+                    },
+                    
+                    getAdminLanguageCode: function() {
+                        return oData['admin_language_code'];
+                    }
+                };
+            })();</script><script type="text/javascript" src="./moment.php"></script><script type="text/javascript">            var EC_GLOBAL_DATETIME = (function() {
+                var oConstants = {"STANDARD_DATE_REGEX":"\/([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))\/","IN_ZONE":"inZone","OUT_ZONE":"outZone","IN_FORMAT":"inFormat","OUT_FORMAT":"outFormat","IN_DATE_FORMAT":"inDateFormat","IN_TIME_FORMAT":"inTimeFormat","OUT_DATE_FORMAT":"outDateFormat","OUT_TIME_FORMAT":"outTimeFormat","IN_FORMAT_DATE_ONLY":1,"IN_FORMAT_TIME_ONLY":2,"IN_FORMAT_ALL":3,"OUT_FORMAT_DATE_ONLY":1,"OUT_FORMAT_TIME_ONLY":2,"OUT_FORMAT_ALL":3,"DATE_ONLY":"YYYY-MM-DD","TIME_ONLY":"HH:mm:ss","FULL_TIME":"YYYY-MM-DD HH:mm:ss","ISO_8601":"YYYY-MM-DD[T]HH:mm:ssZ","YEAR_ONLY":"YYYY","MONTH_ONLY":"MM","DAY_ONLY":"DD","WEEK_ONLY":"e","TIME_H_I_ONLY":"HH:mm","TIME_HOUR_ONLY":"HH","TIME_MINUTE_ONLY":"mm","POSTGRE_FULL_TIME":"YYYY-MM-DD HH24:MI:SS","POSTGRE_TIME_ONLY":" HH24:MI:SS","MICRO_SECOND_ONLY":"u","SEOUL":"Asia\/Seoul","TOKYO":"Asia\/Tokyo","SHANGHAI":"Asia\/Shanghai","TAIPEI":"Asia\/Taipei","HANOI":"Asia\/Bangkok","LOS_ANGELES":"America\/Los_Angeles","LISBON":"Europe\/Lisbon","MADRID":"Europe\/Madrid","UTC":"Etc\/UTC","MAX_DATETIME":"9999-12-31 23:59:59"};
+                var oOptions = {"inZone":"Asia\/Seoul","inFormat":"YYYY-MM-DD HH:mm:ss","inDateFormat":"YYYY-MM-DD","inTimeFormat":"HH:mm:ss","outZone":"Asia\/Seoul","outFormat":"YYYY-MM-DD HH:mm:ss","outDateFormat":"YYYY-MM-DD","outTimeFormat":"HH:mm:ss"};
+                var oPolicies = [];
+                var sOverrideTimezone = '';
+                var sMomentNamespace = 'EC_GLOBAL_MOMENT';
+                
+                var fMomentLoaded = function() {
+                    var bMomentLoaded = !!window[sMomentNamespace];
+                    var bMomentTZLoaded = false;
+                    if (bMomentLoaded) {
+                        bMomentTZLoaded = !!window[sMomentNamespace].tz;
+                    }
+                    
+                    return bMomentLoaded && bMomentTZLoaded;
+                };
+                
+                var fMomentWrapper = function() {
+                    return window[sMomentNamespace];
+                };
+                
+                var fShallowMerge = function(oTarget, oSource) {
+                    oSource = oSource || {};
+                    for (var sKey in oSource) {
+                        if (oSource.hasOwnProperty(sKey)) {
+                            oTarget[sKey] = oSource[sKey];
+                        }
+                    }
+                    
+                    return oTarget;
+                };
+                
+                var getFormatFromFlag = function(oOptions, iFlag, bOpposite) {
+                    if (bOpposite) {
+                        switch (iFlag) {
+                            case 1:
+                                return oOptions[oConstants.IN_DATE_FORMAT];
+                            case 2:
+                                return oOptions[oConstants.IN_TIME_FORMAT];
+                            default:
+                                return oOptions[oConstants.IN_FORMAT];    
+                        }
+                    }
+                    
+                    switch (iFlag) {
+                        case 1:
+                            return oOptions[oConstants.OUT_DATE_FORMAT];
+                        case 2:
+                            return oOptions[oConstants.OUT_TIME_FORMAT];
+                        default:
+                            return oOptions[oConstants.OUT_FORMAT];
+                    }
+                };
+                              
+                return {
+                    'const': oConstants,
+                    
+                    init: function(fCallback) {
+                        if (fMomentLoaded()) {
+                            if (typeof fCallback === 'function') {
+                                fCallback();
+                            }
+                            
+                            return;
+                        }
+                        
+                        var oScript = document.createElement('script');
+                        oScript.type = 'text/javascript';
+                        oScript.async = true;
+                        oScript.src = '/ind-script/moment.php?convert=T';
+                        oScript.onload = oScript.onreadystatechange = function () {
+                            fMomentWrapper().defaultFormat = oOptions[oConstants.OUT_FORMAT];
+                            fMomentWrapper().tz.setDefault(oOptions[oConstants.IN_ZONE]);
+                            
+                            if (typeof fCallback === 'function') {
+                                fCallback();
+                            }
+                        };
+                        
+                        var oFirstScript = document.getElementsByTagName('script')[0];
+                        oFirstScript.parentNode.insertBefore(oScript, oFirstScript);
+                    },
+                    
+                    initPromise: function() {
+                        if (!window.Promise) {
+                            return;
+                        }
+                        
+                        return new Promise(function(resolve) {
+                            this.init(resolve);
+                        }.bind(this));
+                    },
+                    
+                    isLoaded: function() {
+                        return fMomentLoaded();
+                    },
+                                    
+                    setOptions: function(oNewOptions) {
+                         if (typeof oNewOptions === 'object') {
+                             for (var sKey in oNewOptions) {
+                                 if (oNewOptions.hasOwnProperty(sKey) && oOptions.hasOwnProperty(sKey)) {
+                                     oOptions[sKey] = oNewOptions[sKey];
+                                 }
+                             }
+                         }
+                         
+                         return this;
+                    },
+                    
+                    now: function(mOptions, iFlag) {
+                        if (fMomentLoaded() === false) {
+                            return Math.floor(new Date().getTime() / 1000);
+                        }
+                        
+                        var oFormatOptions = this.getOptions(mOptions);
+                        return fMomentWrapper()()
+                            .tz(oFormatOptions.outZone)
+                            .format(getFormatFromFlag(oFormatOptions, iFlag));
+                    },
+                    
+                    format: function(sTime, mOptions, iFlag) {
+                        if (fMomentLoaded() === false) {
+                            return sTime;
+                        }
+                        
+                        var oFormatOptions = this.getOptions(mOptions);
+                        return fMomentWrapper()
+                            .tz(sTime, oFormatOptions.inZone)
+                            .tz(oFormatOptions.outZone)
+                            .format(getFormatFromFlag(oFormatOptions, iFlag));
+                    },
+                    
+                    parse: function(sTime, mOptions) {
+                        if (fMomentLoaded() === false) {
+                            return sTime;
+                        }
+                        
+                        var oParseOptions = this.getOptions(mOptions);
+                        return fMomentWrapper().tz((sTime || new Date()), oParseOptions.inZone).tz(oParseOptions.outZone);
+                    },
+                    
+                    getOptions: function(mOptions, iFlag) {
+                        mOptions = mOptions || {};
+                      
+                        var oMergedOptions = fShallowMerge({}, oOptions);
+                        if (typeof mOptions === 'string' && oPolicies[mOptions]) {
+                            oMergedOptions = fShallowMerge(oMergedOptions, oPolicies[mOptions]);
+                        } else if (typeof mOptions === 'object') {
+                            oMergedOptions = fShallowMerge(oMergedOptions, mOptions);
+                        }
+                        
+                        if (sOverrideTimezone) {
+                            if ((typeof mOptions === 'string' && mOptions === 'shop') || (typeof mOptions === 'object' && !mOptions[oConstants.OUT_ZONE])) {
+                                oMergedOptions[oConstants.OUT_ZONE] = sOverrideTimezone;
+                            }
+                        }
+                        
+                        return oMergedOptions;
+                    },
+                    
+                    getRevertOptions: function(mOptions) {
+                        var oCurrentOptions = this.getOptions(mOptions);
+                        var oMergedOptions = fShallowMerge({}, oOptions);
+                        oMergedOptions[oConstants.IN_ZONE] = oCurrentOptions[oConstants.OUT_ZONE];
+                        oMergedOptions[oConstants.IN_FORMAT] = oCurrentOptions[oConstants.OUT_FORMAT];
+                        oMergedOptions[oConstants.IN_DATE_FORMAT] = oCurrentOptions[oConstants.OUT_DATE_FORMAT];
+                        oMergedOptions[oConstants.IN_TIME_FORMAT] = oCurrentOptions[oConstants.OUT_TIME_FORMAT];
+                        
+                        return oMergedOptions;
+                    },
+                    
+                    today: function(sTime, mOptions, iFlag) {
+                        if (fMomentLoaded() === false) {
+                            throw new Error('MomentJS didnt initialize');
+                        }
+                        
+                        mOptions = mOptions || 'shop';
+                        var oRevertOptions = this.getRevertOptions(mOptions);
+                        var oToday;
+                        if (!sTime || sTime === 'now') {
+                            oToday = this.parse('', mOptions);
+                        } else {
+                            iFlag = iFlag || oConstants.IN_FORMAT_ALL || 3;
+                            oToday = fMomentWrapper().tz(sTime, getFormatFromFlag(oRevertOptions, iFlag, true), oRevertOptions[oConstants.IN_ZONE]);
+                            if (oToday.isValid() === false) {
+                                var oStandardDateRegex = new RegExp(oConstants.STANDARD_DATE_REGEX.replace(/\//g, ''));
+                                if (oStandardDateRegex.test(sTime) === true) {
+                                    oToday = fMomentWrapper().tz(sTime, oRevertOptions[oConstants.IN_ZONE]);
+                                } else {
+                                    oToday = fMomentWrapper()();
+                                }
+                            }
+                        }
+                        
+                        var oStartOfDay = oToday.clone().startOf('day');
+                        var oEndOfDay = oToday.clone().endOf('day');
+                        
+                        var sStartOfDayInSeoul = oStartOfDay.tz(oConstants.SEOUL).format(oConstants.FULL_TIME);
+                        var sEndOfDayInSeoul = oEndOfDay.tz(oConstants.SEOUL).format(oConstants.FULL_TIME);
+                        
+                        return [sStartOfDayInSeoul, sEndOfDayInSeoul];
+                    },
+                    
+                    parseFromFormat: function(sTime, mOptions, iFlag) {
+                        if (fMomentLoaded() === false) {
+                            return sTime;
+                        }
+                        
+                        mOptions = mOptions || 'shop';
+                        iFlag = iFlag || oConstants.IN_FORMAT_ALL || 3;
+                        
+                        var oRevertOptions = {};
+                        if (typeof mOptions === 'string') {
+                            oRevertOptions = this.getRevertOptions(mOptions);
+                        } else {
+                            oRevertOptions = this.getOptions(mOptions);
+                        }
+                        
+                        return fMomentWrapper()(sTime, getFormatFromFlag(oRevertOptions, iFlag, true));
+                    }
+                };
+            })();</script>
+
+<link rel="stylesheet" type="text/css" href="./optimizer(5).php">
+
+<title>ADD(에드)</title>
+<meta name="description" content="ADD는 일상에서 편안함을 추구하고 데일리 웨어러블 룩을 지향하는 브랜드입니다.
+디자인 감성과 더불어 합리적인 가격을 제안합니다.">
+<meta name="keywords" content="ADD,에드, 디자이너브랜드, 남자디자이너브랜드, 와이드팬츠, 와이드바지, 남자와이드, 남자슬렉스, 슬렉스바지, 남자반팔티, 반팔티브랜드, 반팔와이셔츠, 하와이안셔츠"><div class="shopCategory">
+        <div id="category" class="xans-element- xans-layout xans-layout-category"><ul>
+<li class="xans-record-"><a href="http://skin-skin12.addseoul.cafe24.com/category/signature-line/120/" class="cat_SIGNATURE">SIGNATURE LINE</a></li>
+                    <li class="xans-record-"><a href="http://skin-skin12.addseoul.cafe24.com/category/outerwear/43/" class="cat_OUTERWEAR">OUTERWEAR</a></li>
+                    <li class="xans-record-"><a href="http://skin-skin12.addseoul.cafe24.com/category/top/44/" class="cat_TOP">TOP<ul class="menuCategory top_sub">            <li style="display:;" class="xans-element- xans-product xans-product-displaycategory  xans-record-"><a href="http://skin-skin12.addseoul.cafe24.com/category/shirt/104/">SHIRT <span class="count displaynone">()</span></a></li>            <li style="display:;" class="xans-element- xans-product xans-product-displaycategory  xans-record-"><a href="http://skin-skin12.addseoul.cafe24.com/category/t-shrt/105/">T-SHRT <span class="count displaynone">()</span></a></li>            <li style="display:;" class="xans-element- xans-product xans-product-displaycategory  xans-record-"><a href="http://skin-skin12.addseoul.cafe24.com/category/knit/114/">KNIT <span class="count displaynone">()</span></a></li>        </ul>  </a></li>
+<li class="xans-record-"><a href="http://skin-skin12.addseoul.cafe24.com/category/bottom/45/" class="cat_BOTTOM">BOTTOM<ul class="menuCategory bottom_sub">         <li style="display:;" class="xans-element- xans-product xans-product-displaycategory  xans-record-"><a href="http://skin-skin12.addseoul.cafe24.com/category/slacks/117/">SLACKS <span class="count displaynone">()</span></a></li>		<li style="display:;" class="xans-element- xans-product xans-product-displaycategory  xans-record-"><a href="http://skin-skin12.addseoul.cafe24.com/category/denim/116/">DENIM <span class="count displaynone">()</span></a></li>	</ul></a></li>
+<li class="xans-record-"><a href="http://skin-skin12.addseoul.cafe24.com/category/acc/61/" class="cat_ACC">ACC</a></li>
+<li class="xans-record-"><a href="http://skin-skin12.addseoul.cafe24.com/category/sale/56/" class="cat_SALE">SALE</a></li>
+                </ul>
+</div>
+    <div class="xans-element- xans-product xans-product-headcategory title block"><h2><span>SIGNATURE LINE</span></h2>
+</div>
+</div>
+
+<div class="lookbookCategory">
+        <div class="xans-element- xans-product xans-product-headcategory path "><ol>
+<li><a href="http://skin-skin12.addseoul.cafe24.com/">홈</a></li>
+                    <li class=""><a href="http://skin-skin12.addseoul.cafe24.com/lookbook/list.html?cate_no=120">SIGNATURE LINE</a></li>
+                    <li class="displaynone"><a href="http://skin-skin12.addseoul.cafe24.com/lookbook/list.html"></a></li>
+                    <li class="displaynone"><a href="http://skin-skin12.addseoul.cafe24.com/lookbook/list.html"></a></li>
+                    <li class="displaynone"><strong><a href="http://skin-skin12.addseoul.cafe24.com/lookbook/list.html"></a></strong></li>
+                </ol>
+</div>
+
+    <div class="inner">
+
+        <div class="xans-element- xans-product xans-product-menupackage "><div class="xans-element- xans-product xans-product-headcategory title block "><h2><span>SIGNATURE LINE</span></h2>
+</div>
+<ul class="menuCategory">
+<!-- 참고 : 뉴상품관리 전용 모듈입니다. 뉴상품관리 이외의 곳에서 사용하면 정상동작하지 않습니다.--><!-- //참고 -->
+         </ul>
+</div>
+    </div>
+</div>
+
+<div class="xans-element- xans-board xans-board-listpackage-4 xans-board-listpackage xans-board-4 boardCategory "><div class="xans-element- xans-board xans-board-title-4 xans-board-title xans-board-4 "><div class="inner">
+            <div class="path">
+                <span>현재 위치</span>
+                <ol>
+<li><a href="http://skin-skin12.addseoul.cafe24.com/">홈</a></li>
+                    <li><a href="http://skin-skin12.addseoul.cafe24.com/board/index.html">게시판</a></li>
+                    <li title="현재 위치">REVIEW</li>
+                </ol>
+</div>
+        </div>
+</div>
+<ul class="xans-element- xans-layout xans-layout-boardinfo"><li class="xans-record-"><a href="http://skin-skin12.addseoul.cafe24.com/board/free/list.html?board_no=1">NOTICE</a></li>
+<li class="xans-record-"><a href="http://skin-skin12.addseoul.cafe24.com/board/product/list.html?board_no=6">Q&amp;A</a></li>
+<li class="xans-record-"><a href="http://skin-skin12.addseoul.cafe24.com/board/product/list.html?board_no=4">REVIEW</a></li>
+</ul>
+<p class="color-bar"></p>
+</div>
+<script type="text/javascript">
+     
+    
+var menuon_sm = false
+$('.shopCategory .xans-product-menupackage').click(function() {
+        if(!menuon_sm){
+            menuon_sm = true
+            $('.shopCategory .xans-product-menupackage').addClass('menu_out')
+        }else{
+            menuon_sm = false
+            $('.shopCategory .xans-product-menupackage').removeClass('menu_out')
+        }
+});
+$('.shopCategory .title').addClass('block')
+$('.shopCategory').hover(function() {
+    $('#category').addClass('block')
+	$('.shopCategory .title').removeClass('block')
+},function(){
+    $('#category').removeClass('block')
+	$('.shopCategory .title').addClass('block')
+});
+//if board
+if(window.location.href.split('/').includes('board')){
+    console.log(window.location.href.split('=')[1] === '1')
+	if(window.location.href.split('=')[1] === '1'){
+		$('.xans-layout-boardinfo>li:nth-child(1)').addClass('block')
+    }
+	if(window.location.href.split('=')[1] === '6'){
+		$('.xans-layout-boardinfo>li:nth-child(2)').addClass('block')
+    }
+	if(window.location.href.split('=')[1] === '4'){
+		$('.xans-layout-boardinfo>li:nth-child(3)').addClass('block')
+    }
+    console.log('hey')
+    $('.shopCategory').remove()
+    $('.boardCategory').css({display:'block'})
+    $('.boardCategory').hover(function() {
+         $('.xans-layout-boardinfo>li').addClass('block')
+    },function(){
+        $('.boardCategory li').removeClass('block')
+        if(window.location.href.split('=')[1] === '1'){
+            $('.xans-layout-boardinfo>li:nth-child(1)').addClass('block')
+        }
+        if(window.location.href.split('=')[1] === '6'){
+            $('.xans-layout-boardinfo>li:nth-child(2)').addClass('block')
+        }
+        if(window.location.href.split('=')[1] === '4'){
+            $('.xans-layout-boardinfo>li:nth-child(3)').addClass('block')
+        }
+    });
+}
+    
+    
+name_cat()
+function name_cat(){
+        var as = document.getElementById('category').getElementsByTagName('a')
+        for (var i = as.length - 1; i >= 0; i--) {
+            var aclassname = as[i].innerHTML.split(' ')[0];
+            as[i].classList.add('cat_'+aclassname);
+        }
+    $('.cat_BOTTOM').append('<ul class="menuCategory bottom_sub">\
+         <li style="display:;" class="xans-element- xans-product xans-product-displaycategory  xans-record-"><a href="/category/slacks/117/">SLACKS <span class="count displaynone">()</span></a></li>\
+		<li style="display:;" class="xans-element- xans-product xans-product-displaycategory  xans-record-"><a href="/category/denim/116/">DENIM <span class="count displaynone">()</span></a></li>\
+	</ul>')
+    $('.cat_TOP').append('<ul class="menuCategory top_sub">\
+            <li style="display:;" class="xans-element- xans-product xans-product-displaycategory  xans-record-"><a href="/category/shirt/104/">SHIRT <span class="count displaynone">()</span></a></li>\
+            <li style="display:;" class="xans-element- xans-product xans-product-displaycategory  xans-record-"><a href="/category/t-shrt/105/">T-SHRT <span class="count displaynone">()</span></a></li>\
+            <li style="display:;" class="xans-element- xans-product xans-product-displaycategory  xans-record-"><a href="/category/knit/114/">KNIT <span class="count displaynone">()</span></a></li>\
+        </ul>  ')
+    
+var loc = window.location.href.split('/')
+console.log(loc.includes('19-winter-new' ))
+if(loc.includes('product' )|| 
+   loc.includes('19-winter-new ') ||
+   loc.includes('signature-line ' ) ||
+   loc.includes('outerwear ' ) ||
+   loc.includes('top' ) ||
+   loc.includes('shirt' ) ||
+   loc.includes('t-shrt' ) ||
+   loc.includes('knit' ) ||
+   loc.includes('bottom' ) ||
+   loc.includes('slacks' ) ||
+   loc.includes('denim' ) ||
+   loc.includes('acc ' ) ||
+   loc.includes('sale') ){
+    $('.shopCategory').show()
+    $('.shopCategory #category a').mouseover(function(){
+        $('.shopCategory .menuCategory').removeClass('block')
+    })
+    console.log($('.shopCategory .cat_TOP'))
+    $('.shopCategory .cat_TOP').mouseover(function(){
+        $('.shopCategory .menuCategory').removeClass('block')
+        $('.shopCategory .top_sub').addClass('block')
+    })
+    $('.shopCategory .cat_BOTTOM').mouseover(function(){
+        $('.shopCategory .menuCategory').removeClass('block')
+        $('.shopCategory .bottom_sub').addClass('block')
+    })
+}
+    
+   
+for (var i = loc.length - 1; i >= 0; i--) {
+    console.log(loc[i])
+	if(loc[i] === 'lookbook'){
+    $('.lookbookCategory').show() 
+    $('.lookbookCategory .inner').hover(function(){
+        $('.lookbookCategory .title').removeClass('block')
+        $('.lookbookCategory .menuCategory').addClass('blockflex')
+    	},function(){
+        $('.lookbookCategory .title').addClass('block')
+        $('.lookbookCategory .menuCategory').removeClass('blockflex')
+    })
+    if(window.location.href.split('=')[1] == 75){
+        $('.lookbookCategory .menuCategory').addClass('blockflex')
+        }
+        }
+}
+}
+</script>
+<script>
+
+function msieversion() {
+    if (/MSIE 10/i.test(navigator.userAgent)) {
+        console.log('1')
+       // this is internet explorer 10
+        $(".black").prop("href",'http://add-seoul.com/intro.html');
+        $(".white").prop("href",'http://add-seoul.com/intro.html');
+    }else if(/MSIE 9/i.test(navigator.userAgent) || /rv:11.0/i.test(navigator.userAgent)){
+        console.log('2')
+        $(".black").prop("href",'http://add-seoul.com/intro.html');
+        $(".white").prop("href",'http://add-seoul.com/intro.html');
+        window.location.replace('http://add-seoul.com/intro.html');
+    }else if (/Edge\/12./i.test(navigator.userAgent) || window.navigator.userAgent.indexOf("Edge") > -1){
+        console.log('3')
+        $(".black").prop("href",'http://add-seoul.com/intro_m.html');
+        $(".white").prop("href",'http://add-seoul.com/intro_m.html');
+       // this is Microsoft Edge
+        window.location.replace('http://add-seoul.com/intro_m.html');
+    }else{
+        console.log('4')
+       // this is chrome/safari
+        return false;
+    }
+    return false;
+}
+    
+
+    
+    
+    
+    
+    var menuon = false
+    $('.dropdown').click(function() {
+        if(!menuon){
+        	menuon = true
+        	$('.mRight').addClass('opacity_1')
+        	$('.logo').addClass('invert_1')
+        }else{
+        	menuon = false
+        	$('.mRight').removeClass('opacity_1')
+        	$('.logo').removeClass('invert_1')
+        }
+    });
+    $('.myMenu ul li').hover(function() {
+        $(this).children('ul').stop(true, true).fadeToggle(300);
+    });
+</script><script type="text/javascript" src="./i18n(1).php" charset="utf-8"></script>
+
+<script type="text/javascript" src="./optimizer(6).php"></script>
+<script type="text/javascript" src="./optimizer(7).php"></script>
+<script type="text/javascript">
+var EC_MOBILE = false;
+var EC_MOBILE_DEVICE = false;
+var EC_MOBILE_USE = true;
+var mobileWeb = false;
+EC_SHOP_FRONT_NEW_LIKE_COMMON.init({"bIsUseLikeProduct":false,"bIsUseLikeCategory":false});
+EC_SHOP_FRONT_REVIEW_TALK_REVIEW_COUNT.bIsReviewTalk = 'F';
+var sMileageName = '적립금';
+var sMileageUnit = '[:PRICE:]원';
+var sDepositName = '예치금';
+var sDepositUnit = '원';
+var SHOP_CURRENCY_INFO = {"1":{"aShopCurrencyInfo":{"currency_code":"KRW","currency_no":"410","currency_symbol":"\uffe6","currency_name":"South Korean won","currency_desc":"\uffe6 \uc6d0 (\ud55c\uad6d)","decimal_place":0,"round_method_type":"F"},"aShopSubCurrencyInfo":null,"aBaseCurrencyInfo":{"currency_code":"KRW","currency_no":"410","currency_symbol":"\uffe6","currency_name":"South Korean won","currency_desc":"\uffe6 \uc6d0 (\ud55c\uad6d)","decimal_place":0,"round_method_type":"F"},"fExchangeRate":1,"fExchangeSubRate":null,"aFrontCurrencyFormat":{"head":"","tail":"\uc6d0"},"aFrontSubCurrencyFormat":{"head":"","tail":""}}};
+var EC_ASYNC_LIVELINKON_ID = '';
+if ($('[async_section=before]').length > 0) {
+$('[async_section=before]').addClass('displaynone');
+}
+var EC_FRONT_JS_CONFIG_MANAGE = {"sSmartBannerScriptUrl":"https:\/\/app4you.cafe24.com\/SmartBanner\/tunnel\/scriptTags?vs=1563164396689206","sMallId":"addseoul","sDefaultAppDomain":"https:\/\/app4you.cafe24.com"};
+var EC_FRONT_JS_CONFIG_MEMBER = {"sAuthUrl":"https:\/\/i-pin.cafe24.com\/certify\/1.0\/?action=auth"};
+</script>
+<div class="field" style="display:none;"><div class="editorBtn" style="padding: 0 35px 0 0;"><p class="btn"><button type="button" class="edit">편집</button></p><p class="info">SIZE : <span></span></p><div class="arrowBtn" style="position: absolute; right: 20px; top: 8px; display: none;"><a href="http://skin-skin12.addseoul.cafe24.com/layout/basic/header.html?PREVIEW_SDE=1#" class="up" data-cmd="up">up</a><a href="http://skin-skin12.addseoul.cafe24.com/layout/basic/header.html?PREVIEW_SDE=1#" class="down" data-cmd="down">down</a></div></div><p class="closeBtn"><button type="button" class="close" title="닫기">닫기</button></p></div></body></html>

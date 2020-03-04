@@ -1,0 +1,1124 @@
+@charset "utf-8";
+
+/* Reset */
+html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,img { margin:0; padding:0; }
+html,body { width:100%; height:100%; overflow:hidden; }
+body,code { font:12px "돋움",Dotum,AppleGothic,sans-serif; color:#131313; background:#262732; }
+  html:lang(ja) body, html:lang(ja) code { font-family:Meiryo,"メイリオ","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",sans-serif; font-size:12px; }
+  html:lang(en) body, html:lang(en) code { font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; font-size:12px;}
+  html:lang(ja) body, html:lang(ja) code { font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; font-size:12px; }
+body { min-width:980px; min-height:940px; }
+li { list-style:none; }
+img,fieldset { border:none; vertical-align:top; }
+table { table-layout:fixed; width:100%; border:0; border-spacing:0; border-collapse:collapse; }
+caption { display:none; }
+th,td { border:0; vertical-align:top; word-wrap:break-word; }
+input,select,textarea { font-size:100%; color:#1b1b1b; vertical-align:middle; }
+legend { visibility:hidden; position:absolute; left:-9999px; top:-9999px; width:0; height:0; line-height:0; }
+button { overflow:hidden; display:inline-block; padding:0; margin:0; border:0; font-family:"돋움",Dotum,AppleGothic,sans-serif; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix-btn.png") no-repeat 0 0; text-indent:150%; white-space:nowrap; cursor:pointer; }
+  button:lang(ja) { font-family:Meiryo,"メイリオ","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",sans-serif; background-image:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix_btn_ja_JP.png"); }
+  button:lang(vi) { font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; background-image:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix_btn_vi_VN.png"); }
+  button:lang(en) { font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; background-image:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix_btn_en_US.png"); }
+hr.layout { display:none; }
+a { text-decoration:none; color:#000; }
+.objHidden { visibility:hidden; position:absolute; left:-1000px; top:-1000px; height:0; width:0; }
+
+/* ie8대응 */
+.ie8 { position:absolute; left:0; top:0; z-index:120; width:100%; height:163px; padding:5px 0 0; background:#f3f3f3 url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg_browser.gif") repeat-x 0 0; text-align:center; }
+.ie8 p { margin:0 0 22px; }
+.ie8 a { margin:0 5px; }
+.ie8 .close { position:absolute; right:20px; top:20px; overflow:hidden; width:15px; height:14px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/btn_close.gif") no-repeat 0 0; text-indent:150%; white-space:nowrap; }
+
+/* codeArea 영역 폰트 해상도 대응*/
+.CodeMirror pre { line-height:1.5!important; letter-spacing:.4px!important; }
+  /* mac pc */
+  @media(-webkit-min-device-pixel-ratio:2){
+    .CodeMirror pre { -webkit-text-stroke-width:.5px; }
+  }
+
+/* Wrap */
+#wrap {
+  min-height:100%; margin:0 0 -50px;
+  background:#333542;
+  background:#f3f3f3 -webkit-linear-gradient(top, #333542, #2a2c38);
+  background:#333542 -moz-linear-gradient(top, #333542, #2a2c38);
+  background:#333542 -o-linear-gradient(top, #333542, #2a2c38);
+}
+
+/* Aside */
+#aside { position:absolute; left:0; top:0; width:214px; }
+#aside h1 { padding:30px 0 32px 16px; background:#343643 url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg-logo.gif") repeat-x 0 100%; line-height:0; font-size:0; }
+  html:lang(ja) #aside h1 { padding-left:14px; }
+#aside .title { padding:10px 12px 20px; }
+#aside .title span { color:#7d8087; font-size:11px; word-spacing:-1px; }
+#aside .title strong { display:block; padding:5px 0 0; color:#8dbddc; font-size:13px; letter-spacing:-1px; }
+#aside .title strong img { margin:0 0 0 6px; }
+#aside h2 { width:202px; height:31px; margin:0 0 0 6px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix-tab.png") no-repeat 0 -62px; color:#fff; font-size:11px; font-weight:normal; line-height:31px; line-height:34px \0/; text-align:center; }
+#aside .tab { overflow:hidden; width:202px; padding:0 0 0 6px; }
+#aside .tab li { float:left; cursor:pointer; width:101px; height:22px; padding:9px 0 0 0; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix-tab.png") no-repeat 0 0; color:#d0d2de; font-size:11px; text-align:center; }
+#aside .tab li:hover { color:#85cfff; }
+#aside .tab li.selected { color:#fff; }
+#aside .tab li.favorite { background-position:0 -31px; }
+#aside .tab li.favorite:hover { background-position:0 -31px; }
+#aside .tab li.favorite.selected { background-position:0 0; }
+#aside .tab li.all { background-position:-101px 0; }
+#aside .tab li.all:hover { background-position:-101px 0; }
+#aside .tab li.all.selected { background-position:-101px -31px; }
+#aside .addFolder { overflow:hidden; width:197px; height:26px; margin:0 0 0 6px; padding:8px 0 0 5px; line-height:140%; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg_folder.gif") no-repeat 0 0; }
+#aside .addFolder a { float:left; margin:0 0 0 15px; padding:0 0 0 25px; color:#72747d; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex_ico_folder.png") no-repeat 0 0; }
+#aside .addFolder .more { background-position:-180px 0; }
+#aside .addFolder .more.disabled { background-position:-80px -200px; cursor:default; }
+#aside .addFolder .delete { background-position:-130px -100px; }
+#aside .addFolder .delete.disabled { background-position:-30px -300px; cursor:default; }
+#aside .add { width:122px; height:25px; margin:0 0 0 6px; padding:8px 40px 0 40px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg-add.gif") no-repeat 0 100%; }
+#aside .add a { display:block; padding:1px 0 2px 24px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex-ico.png") no-repeat -484px 0; color:#72747d; font-weight:bold; letter-spacing:-1px; }
+#aside .setting { overflow:hidden; width:202px; height:37px; margin:0 0 0 6px; line-height:37px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg_setting.gif") no-repeat 0 100%; }
+#aside .setting a { float:left; width:64px; padding:0 0 0 37px; color:#72747d; font-weight:bold; letter-spacing:-1px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex-ico.png") no-repeat -469px 10px; }
+  html:lang(ja) #aside .setting a { width:101px; background:none; padding:0; text-align:center; }
+#aside .setting .folder {}
+#aside .setting .page {}
+#aside .update { display:block; width:204px; margin:10px 0 0 0; padding:0 0 0 6px; }
+#aside .update a { display:block; height:32px; line-height:32px; padding:0 0 0 41px; color:#71798c; font-size:11px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/btn_update.png") no-repeat 0 0; }
+#aside .update a:hover { color:#aaafb9; background-position:0 -42px; }
+
+#aside .search { display:block; overflow:hidden; width:204px; margin:15px 0 0; padding:0 0 0 4px; }
+#aside .search .fText { display:block; width:151px; height:20px; padding:9px 10px 0 10px; border-top:1px solid #272832; border-right:0; border-bottom:1px solid #1b1c23; border-left:1px solid #272832; border-top-left-radius:3px; border-bottom-left-radius:3px; background:#454853; color:#c0c3ca; }
+@-moz-document url-prefix() { #aside .search .fText { padding-top:0; height:27px; } }
+@media screen and (-webkit-min-device-pixel-ratio:0){ #aside .search .fText { padding-top:0; height:27px; } }
+#aside .search .fImg { float:left; }
+
+#aside .manual { display:block; position:relative; margin:16px 0 0; padding:22px 28px 21px 42px; border-top:1px solid #15161e; border-bottom:1px solid #15161e; box-shadow:inset 0 1px #3e3f49, 0 1px #3e3f49; line-height:1.4; color:#e0e0e1; -webkit-transition:.3s ease-out; transition:.3s ease-out; }
+#aside .manual + .manual { margin-top:-1px; }
+#aside .manual:before { content:""; position:absolute; top:20px; left:14px; width:19px; height:19px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix_ico.png") no-repeat 0 -40px; }
+#aside .manual:after { content:""; position:absolute; top:26px; right:20px; width:3px; height:6px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex-ico.png") no-repeat -47px -900px; }
+#aside .manual:hover { color:#dfdfe0; background:#252631; }
+#aside .manual:hover:before { background-position:-20px -40px; }
+
+#aside .snbFavorite { overflow:hidden; overflow-y:auto; position:relative; width:202px; margin:0 0 0 6px; background:#e7e7ea url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg-snb.png") repeat-y 0 0; }
+#aside .snbFavorite .scroll { height:487px; }
+#aside .snbFavorite ul { padding:0 0 2px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg-snb-line.gif") no-repeat 0 100%; }
+#aside .snbFavorite ul ul { padding:0; background:none; }
+#aside .snbFavorite li { position:relative; padding:2px 0 0; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg-snb-line.gif") no-repeat 0 0; }
+#aside .snbFavorite li:first-child { padding:0; background:none; }
+#aside .snbFavorite li li:first-child { padding:2px 0 0; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg-snb-line.gif") no-repeat 0 0; }
+#aside .snbFavorite li strong,
+#aside .snbFavorite li a { display:block; padding:11px 0 9px 12px; color:#454f63; font-family:gulim,sans-serif; word-wrap:break-word; }
+  html:lang(ja) #aside .snbFavorite li strong,
+  html:lang(ja) #aside .snbFavorite li a { font-family:Meiryo,"メイリオ","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",sans-serif; }
+  html:lang(vi) #aside .snbFavorite li strong,
+  html:lang(vi) #aside .snbFavorite li a { font-family:"Helvetica Neue",Helvetica,Arial,sans-serif }
+  html:lang(en) #aside .snbFavorite li strong,
+  html:lang(en) #aside .snbFavorite li a { font-family:"Helvetica Neue",Helvetica,Arial,sans-serif }
+#aside .snbFavorite li li a { display:block; padding:11px 50px 10px 38px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex-ico-file.png") no-repeat -319px 9px; color:#717483; font-size:11px; }
+#aside .snbFavorite li.html a { background-position:-319px 9px; }
+#aside .snbFavorite li.xml a { background-position:-269px -91px; }
+#aside .snbFavorite li.js a { background-position:-219px -191px; }
+#aside .snbFavorite li.css a { background-position:-169px -291px; }
+#aside .snbFavorite li.check a { background-position:-119px -391px; }
+#aside .snbFavorite li.main a { background-position:-69px -491px; }
+#aside .snbFavorite li.etc a { background-position:-19px -591px; }
+#aside .snbFavorite li span { display:block; }
+#aside .snbFavorite li span:hover { background:#fcfcff url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg-snb.png") repeat-y 0 0; }
+#aside .snbFavorite li span:hover a { color:#1aa0dd; font-weight:bold; letter-spacing:-1px; }
+#aside .snbFavorite li span.btn { position:absolute; right:10px; top:10px; padding:0; background:none; }
+#aside .snbFavorite li button { width:19px; height:19px; margin:0 0 0 -3px; }
+#aside .snbFavorite li button.modify { background-position:0 0; }
+#aside .snbFavorite li button.modify:hover { background-position:0 -29px; }
+#aside .snbFavorite li button.delete { background-position:-29px 0; }
+#aside .snbFavorite li button.delete:hover { background-position:-29px -29px; }
+
+#aside .snbAll { width:202px; margin:0 0 0 6px; background:#e7e7ea url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg-snbAll.gif") repeat-y 0 0; white-space:nowrap; }
+#aside .snbAll .scroll { overflow:auto; position:relative; height:450px; margin:0 3px; }
+#aside .snbAll ul { padding:0 5px 0 29px; min-height:100%; background:#e7e7ea url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg-snbAll-inner.gif") repeat-y 0 0; }
+#aside .snbAll ul ul { padding:0 0 0 10px; height:auto; background:none; }
+#aside .snbAll li { padding:7px 0 0; }
+#aside .snbAll li li { margin:7px 0 0; padding:0; }
+#aside .snbAll li a { display:inline-block; padding:0 0 0 21px; font-family:gulim,sans-serif; }
+  html:lang(ja) #aside .snbAll li a { font-family:Meiryo,"メイリオ","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",sans-serif; font-size:11px; }
+  html:lang(vi) #aside .snbAll li a { font-family:"Helvetica Neue",Helvetica,Arial,sans-serif }
+  html:lang(en) #aside .snbAll li a { font-family:"Helvetica Neue",Helvetica,Arial,sans-serif }
+#aside .snbAll li a:hover { font-weight:bold; letter-spacing:-1px; text-decoration:underline; }
+#aside .snbAll li a span { color:#909090; }
+#aside .snbAll li a:hover span { text-decoration:underline; }
+#aside .snbAll li.parent a { color:#1aa0dd; }
+#aside .snbAll li.parent a span { color:#1aa0dd; }
+#aside .snbAll li.folder { background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex-ico-directory.png") no-repeat 0 -192px; }
+#aside .snbAll li.folder.selected { background-position:-100px -92px; }
+#aside .snbAll li.folder .folder { background-position:0 -200px; }
+  html:lang(ja) #aside .snbAll li.folder .folder { background-position:0 -196px; }
+#aside .snbAll li.folder .folder.selected,
+#aside .snbAll li.folder.selected .folder.selected { background-position:-100px -96px; }
+#aside .snbAll .file { background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex-ico-file.png") no-repeat -334px 0; }
+#aside .snbAll .html { background-position:-334px 0; }
+#aside .snbAll .xml { background-position:-284px -100px; }
+#aside .snbAll .js { background-position:-234px -200px; }
+#aside .snbAll .css { background-position:-184px -300px; }
+#aside .snbAll .check { background-position:-134px -400px; }
+#aside .snbAll .main { background-position:-84px -500px; }
+#aside .snbAll .etc { background-position:-34px -600px; }
+#aside .snbAll li button { position:absolute; left:0; width:19px; height:19px; }
+#aside .snbAll li button.fav { background-position:-58px 0; }
+#aside .snbAll li button.fav:hover { background-position:-58px -29px; }
+#aside .snbAll li button.fav.selected { background-position:-87px 0; }
+#aside .snbAll li button.fav.selected:hover { background-position:-87px -29px; }
+#aside .snbAll .favorite { background:#e7e7ea url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg-snb.png") repeat-y 0 0; }
+#aside .snbAll .favorite p { padding:0 0 2px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg-snb-line.gif") no-repeat 0 100%;  }
+#aside .snbAll .favorite span { display:block; padding:11px 0 10px 27px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex-ico.png") no-repeat -278px -389px; color:#23a6d5; font-size:11px; font-family:gulim,sans-serif; }
+  html:lang(ja) #aside .snbAll .favorite span { font-family:Meiryo,"メイリオ","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",sans-serif; background-position:-278px -387px;}
+  html:lang(vi) #aside .snbAll .favorite span { font-family:"Helvetica Neue",Helvetica,Arial,sans-serif }
+  html:lang(en) #aside .snbAll .favorite span { font-family:"Helvetica Neue",Helvetica,Arial,sans-serif }
+
+/* Bar */
+.controlBar { position:absolute; left:214px; top:0; width:6px; height:100%; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg-controlBar.gif") repeat-y 0 0; cursor:pointer; }
+.controlBar button { position:absolute; left:0; top:290px; width:6px; height:144px; background-position:-16px -57px; }
+
+/* Container */
+#container { position:relative; height:100%; margin:0 3px 0 220px; background:#fff; }
+
+.subHeader { position:relative; left:-6px; z-index:70; width:100%; height:71px; padding:3px 0 0 6px; background:#262732 url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg-subHeader-left.gif") no-repeat 0 0; }
+.subHeader .fileList { height:34px; padding:0 195px 0 71px; border-bottom:1px solid #989ca8; background:#dfe1e7 url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg-subHeader-right.gif") no-repeat 100% 0; }
+.subHeader .fileList .list { position:absolute; left:45px; top:10px; width:45px; height:28px; background-position:-116px -57px; }
+.subHeader .fileList .list:hover,
+.subHeader .fileList .list.selected { background-position:-171px -57px; }
+.subHeader .fileList .list.disabled { background-position:-116px -57px; cursor:default; }
+.subHeader .fileList .file { display:none; overflow:hidden; overflow-y:auto; position:absolute; left:45px; top:37px; z-index:2; max-height:250px; width:240px; border:1px solid #c0c4c8; background:#f9f9f9 url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg-file.gif") repeat-y 0 0 ;}
+.subHeader .fileList .file ul { padding:8px 4px 8px 2px; }
+.subHeader .fileList .file li { margin:-8px 0 8px; border:1px solid transparent; }
+.subHeader .fileList .file li:first-child { margin-top:0; }
+.subHeader .fileList .file li:last-child { margin-bottom:0; }
+.subHeader .fileList .file li:hover { border:1px solid #aecff7; border-radius:3px;
+background:#ebf0f6;
+background:#f2f4f6 -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f2f4f6), to(#ecf0f6));
+background:#f2f4f6 -moz-linear-gradient(top, #f2f4f6, #ecf0f6);
+background:#f2f4f6 -o-linear-gradient(top, #f2f4f6, #ecf0f6); }
+.subHeader .fileList .file a { display:block; padding:5px 10px 4px 33px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex-ico-file.png") no-repeat -330px 4px; font-family:gulim, sans-serif; font-size:11px; }
+.subHeader .fileList .file .html a { background-position:-330px 4px; }
+.subHeader .fileList .file .xml a { background-position:-280px -96px; }
+.subHeader .fileList .file .js a { background-position:-230px -196px; }
+.subHeader .fileList .file .css a { background-position:-180px -296px; }
+.subHeader .fileList .file .check a { background-position:-130px -395px; }
+.subHeader .fileList .file .main a { background-position:-80px -496px; }
+.subHeader .fileList .file .etc a { background-position:-30px -596px; }
+.subHeader .fileList .move { position:absolute; left:9px; top:17px; }
+.subHeader .fileList .move button { float:left; width:15px; height:14px; margin:0 5px 0 0; }
+.subHeader .fileList .move .prev { background-position:-154px -35px; }
+.subHeader .fileList .move .prev:hover,
+.subHeader .fileList .move .prev.selected { background-position:-178px -35px; }
+.subHeader .fileList .move .next { background-position:-202px -35px; }
+.subHeader .fileList .move .next:hover,
+.subHeader .fileList .move .next.selected { background-position:-226px -35px; }
+.subHeader .fileList .btn { position:absolute; right:9px; top:3px; z-index:1; }
+.subHeader .fileList .btn button { float:left; width:84px; height:25px; margin:0 0 0 -1px; }
+.subHeader .fileList .btn .save { background-position:-116px -95px; }
+.subHeader .fileList .btn .save:hover,
+.subHeader .fileList .btn .save.selected { background-position:-210px -95px; }
+.subHeader .fileList .btn .close { background-position:-116px -129px; }
+.subHeader .fileList .btn .close:hover,
+.subHeader .fileList .btn .close.selected { background-position:-210px -129px; }
+.subHeader .fileList .btn .replace { width:104px; background-position:-183px -579px; }
+  html:lang(vi) .subHeader .fileList .btn .replace { width:158px; }
+  html:lang(en) .subHeader .fileList .btn .replace { width:157px; }
+.subHeader .fileList .btn .replace:hover,
+.subHeader .fileList .btn .replace.selected { background-position:-183px -614px; }
+.subHeader .fileList .btn .replace.disabled { background-position:-183px -650px; cursor:default; }
+.subHeader .fileList .btn button:hover,
+.subHeader .fileList .btn .selected { position:relative; z-index:1; }
+
+.subHeader .tab { position:relative; overflow:hidden; height:35px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg-tab-line.gif") repeat-x 0 100%; }
+.subHeader .tab:after { content:" "; display:block; font-size:0; height:0px; line-height:0; clear:both; }
+.subHeader .tab li { position:relative; float:left; height:28px; margin:7px 15px 0 -15px; padding:0 0 0 5px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex-tab.png") no-repeat 0 0; cursor:pointer; }
+.subHeader .tab li:first-child,
+.subHeader .tab li.first { margin-left:0; }
+.subHeader .tab li span { position:relative; left:15px; display:block; height:28px; padding:0 54px 0 0; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex-tab.png") no-repeat 100% 0; line-height:28px; }
+.subHeader .tab li a { overflow:hidden; display:block; width:135px; color:#7e7e7f; font-size:12px; font-weight:bold; letter-spacing:-1px; text-overflow:ellipsis; white-space:nowrap; outline:none; }
+.subHeader .tab li.selected { z-index:1; height:30px; margin-top:5px; background-position:0 -38px; }
+.subHeader .tab li.selected span { height:30px; background-position:100% -38px; line-height:30px; }
+.subHeader .tab li.selected a { color:#2d3246; font-size:13px; }
+.subHeader .tab li.modify a { color:#d97012; width:125px; padding:0 0 0 10px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/ico-tab.png") no-repeat 0 10px; }
+.subHeader .tab li.selected.modify a { background-position:0 11px; }
+.subHeader .tab li button { position:absolute; right:17px; top:8px; width:13px; height:12px; background-position:-114px -34px; }
+.subHeader .tab li.selected button { right:22px; top:9px; background-position:-134px -34px; }
+
+.subHeader .menu { position:relative; height:30px; padding:5px 9px 0 10px; border-bottom:1px solid #989ca8; background:#f1f3f7; }
+.subHeader .menu:after { content:" "; display:block; font-size:0; height:0px; line-height:0; clear:both; }
+.subHeader .menu .btn { float:left; margin:0 20px 0 0; }
+.subHeader .menu .btn button { float:left; height:26px; margin:0 0 0 2px; }
+.subHeader .menu .btn .save { width:49px; background-position:-32px -163px; }
+.subHeader .menu .btn .save:hover,
+.subHeader .menu .btn .save.selected { background-position:-32px -198px; }
+.subHeader .menu .btn .save.disabled { background-position:-447px -105px; cursor:default; }
+.subHeader .menu .btn .saveAs { width:93px; background-position:-90px -163px; }
+  html:lang(ja) .subHeader .menu .btn .saveAs { width:102px; }
+.subHeader .menu .btn .saveAs:hover,
+.subHeader .menu .btn .saveAs.selected { background-position:-90px -198px; }
+.subHeader .menu .btn .reset { width:63px; background-position:-192px -163px; }
+.subHeader .menu .btn .reset:hover,
+.subHeader .menu .btn .reset.selected { background-position:-192px -198px; }
+.subHeader .menu .btn .close { width:49px; background-position:-264px -163px; }
+.subHeader .menu .btn .close:hover,
+.subHeader .menu .btn .close.selected { background-position:-264px -198px; }
+.subHeader .menu .btn .delete { width:48px; background-position:-488px 0; }
+.subHeader .menu .btn .delete:hover,
+.subHeader .menu .btn .delete.selected { background-position:-488px -35px; }
+.subHeader .menu .btn .delete.disabled { background-position:-447px -70px; cursor:default; }
+.subHeader .menu .control { float:left; }
+.subHeader .menu .control li { float:left; }
+.subHeader .menu .control button { display:block; width:68px; height:25px; margin:0 0 0 -1px; }
+.subHeader .menu .control button:hover,
+.subHeader .menu .control .selected { position:relative; z-index:1; }
+.subHeader .menu .control .preview { background-position:-32px -233px; }
+.subHeader .menu .control .preview:hover,
+.subHeader .menu .control .preview.selected { background-position:-32px -268px; }
+.subHeader .menu .control .preview.disabled { background-position:-410px 0; cursor:default; }
+.subHeader .menu .control .module { background-position:-110px -233px; }
+  html:lang(ja) .subHeader .menu .control .module { width:78px; }
+  html:lang(en) .subHeader .menu .control .module { width:73px; }
+  html:lang(vi) .subHeader .menu .control .module { width:68px; }
+.subHeader .menu .control .module:hover,
+.subHeader .menu .control .module.selected { background-position:-110px -268px; }
+.subHeader .menu .control .module.disabled { background-position:-410px -35px; cursor:default; }
+.subHeader .menu .control .recent { width:69px; background-position:-188px -233px; }
+  html:lang(vi) .subHeader .menu .control .recent { width:76px; }
+  html:lang(en) .subHeader .menu .control .recent { width:102px; }
+.subHeader .menu .control .recent:hover,
+.subHeader .menu .control .recent.selected { background-position:-188px -268px; }
+.subHeader .menu .control .recent.disabled { background-position:-357px -170px; cursor:default; }
+.subHeader .menu .control .history { width:69px; background-position:-267px -233px; }
+  html:lang(en) .subHeader .menu .control .history { background-position:-298px -233px; }
+.subHeader .menu .control .history:hover,
+.subHeader .menu .control .history.selected { background-position:-267px -268px; }
+  html:lang(en) .subHeader .menu .control .history:hover,
+  html:lang(en) .subHeader .menu .control .history.selected { background-position:-298px -268px; }
+.subHeader .menu .control .history.disabled { background-position:-435px -170px; cursor:default; }
+.subHeader .menu .control .historyList { display:none; position:absolute; left:428px; top:29px; border:1px solid #c0c4c8; background:#fcfcfd; }
+.subHeader .menu .control .historyList ul { padding:5px 0; }
+.subHeader .menu .control .historyList li { overflow:hidden; width:170px; float:none; height:23px; padding:0 0 0 9px; cursor:pointer; }
+.subHeader .menu .control .historyList li:hover { background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg-history.gif") no-repeat 3px 0; }
+.subHeader .menu .control .historyList li:hover a { color:#35b1e1; font-weight:bold; }
+.subHeader .menu .control .historyList li.empty { padding:10px 0 5px; cursor:default; text-align:center; }
+.subHeader .menu .control .historyList li.empty:hover { background:none; }
+.subHeader .menu .control .historyList a { float:left; padding:5px 0 0 7px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex-ico.png") no-repeat -248px -490px; color:#2f383f; font-size:10px; font-family:verdana, sans-serif; outline:none; }
+.subHeader .menu .control .historyList span { margin:0 0 0 8px; }
+.subHeader .menu .control .historyList button { float:right; width:7px; height:7px; margin:8px 12px 0 0; background-position:-250px -35px; }
+.subHeader .menu .control .historyList p { padding:8px 10px; border-top:1px solid #c0c4c8; background:#dde6ee; color:#7d8385; font-size:11px; line-height:140%; letter-spacing:-1px; }
+.subHeader .menu .util { float:right; }
+.subHeader .menu .login { float:right; }
+.subHeader .menu .login a { float:left; }
+.subHeader .menu .login button { float:left; width:63px; height:26px; margin:0 0 0 -1px; }
+  html:lang(vi) .subHeader .menu .login button { width:89px; }
+.subHeader .menu .login button:hover,
+.subHeader .menu .login .selected { position:relative; z-index:1; }
+.subHeader .menu .login .before { margin-left:10px; background-position:-346px -233px; }
+.subHeader .menu .login .before:hover,
+.subHeader .menu .login .before.selected { background-position:-346px -268px; }
+  html:lang(en) .subHeader .menu .login .before:hover,
+  html:lang(en) .subHeader .menu .login .before.selected { background-position:-376px -268px; }
+.subHeader .menu .login .after { background-position:-419px -233px; }
+  html:lang(vi) .subHeader .menu .login .after { width:79px; background-position:-439px -233px; }
+  html:lang(en) .subHeader .menu .login .after { background-position:-450px -233px; }
+.subHeader .menu .login .after:hover,
+.subHeader .menu .login .after.selected { background-position:-419px -268px; }
+  html:lang(vi) .subHeader .menu .login .after:hover,
+  html:lang(vi) .subHeader .menu .login .after.selected { background-position:-439px -268px; }
+  html:lang(en) .subHeader .menu .login .after:hover,
+  html:lang(en) .subHeader .menu .login .after.selected { background-position:-450px -268px; }
+
+.content { overflow:hidden; position:relative; padding:0 0 39px 0; }
+.previewArea { position:relative; overflow:auto; }
+.field { position:absolute; z-index:50; margin:-2px 0 0 -2px; border:4px solid #13aeda; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg-field.png") repeat 0 0; }
+.field .editorBtn { position:absolute; left:-4px; bottom:-72px; width:170px; height:67px; border-radius:2px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg-editorBtn.png") repeat 0 0; box-shadow:2px 2px 4px #7f7f7f; }
+.field .editorBtn .btn { overflow:hidden; width:133px; margin:8px auto 5px; }
+.field .editorBtn .btn button { display:block; width:133px; height:34px; margin:0 1px 0 0; }
+.field .editorBtn .btn button.edit { background-position:-267px 0; }
+.field .editorBtn .btn button.module { background-position:-267px -44px; }
+.field .editorBtn .info { color:#94e7ff; font-family:verdana, sans-serif; font-size:10px; text-align:center; }
+.field .closeBtn { position:absolute; right:-14px; top:-11px; }
+.field .closeBtn .close { overflow:hidden; display:block; width:25px; height:25px; background-position:-304px -88px; }
+.field.bottom .editorBtn { top:-75px; bottom:auto; }
+.field.right .editorBtn { left:-177px; top:-4px; bottom:auto; }
+.field.left .editorBtn { right:-177px; top:-4px; left:auto; bottom:auto; }
+.field.left .closeBtn { left:-14px; right:auto; }
+
+.divisionArea { width:100%; height:14px; text-align:center; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg_ctrlSection_pc.gif") repeat-x 0 0; }
+.divisionArea span { overflow:hidden; display:inline-block; margin:5px 0 0; width:17px; height:6px; text-indent:150%; color:transparent; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix_ico_division.png") no-repeat 0 0; }
+
+.pc .codeArea { z-index: 50; position:relative; margin-top:0; border-top:30px solid #fff; box-sizing: border-box; }
+.pc .codeArea .ctrlSection { z-index:3; position:absolute; top:-31px; height:30px; border-top:1px solid #989ca8; border-bottom:1px solid #7a828a; background-color:#d7dade; box-sizing:border-box; width:100%; }
+.pc .codeArea.deselected .ctrlSection { top:-30px; }
+
+.ctrlSection { position:relative; width:100%; height:30px; border-top:1px solid #989ca8; border-bottom:1px solid #7a828a; background-color:#d7dade; box-sizing:border-box; }
+.ctrlSection strong { overflow:hidden; display:inline-block; margin:9px 0 0 15px; height:11px; color:transparent; text-indent:-9999px; background-image:url("//img.echosting.cafe24.com/smartAdmin/img/editor/txt_Extensions.png"); background-repeat:no-repeat; }
+.ctrlSection strong.html { width:38px; background-position:0 0; }
+.ctrlSection strong.css { width:27px; background-position:-50px -50px; }
+.ctrlSection strong.js { width:16px; background-position:-100px -100px; }
+.ctrlSection .readonly { display:inline-block; margin:-4px 0 0; color:#ff0000; vertical-align:middle; letter-spacing:-0.5px; }
+.ctrlSection .control { overflow:hidden; position:absolute; right:23px; top:3px; }
+.ctrlSection .control li { float:left; margin:0 0 0 6px; width:24px; height:22px; }
+.ctrlSection .control li a { display:block; width:100%; height:100%; background-image:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex_ico_control.png"); background-repeat:no-repeat; }
+.ctrlSection .control .expand a { background-position:0 0; }
+.ctrlSection .control .expand a:hover { background-position:-50px -100px; }
+.ctrlSection .control .reduction a { background-position:-100px -200px; }
+.ctrlSection .control .reduction a:hover { background-position:-150px -300px; }
+.ctrlSection .control li span { overflow:hidden; display:block; width:0; height:0; color:transparent; text-indent:-9999px; }
+
+.pageInfo { position:absolute; left:50%; top:50%; width:310px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex-ico-info.png") no-repeat 100px -317px; text-align:center; }
+.pageInfo p { padding:12px 0 0;  color:#989898; }
+.pageInfo.type1 { margin:-60px 0 0 -150px; padding:100px 0 0; background-position:100px -317px; }
+.pageInfo.type2 { margin:-80px 0 0 -150px; padding:120px 0 0; background-position:-50px -80px; }
+
+.subFooter { position:absolute; left:-6px; bottom:0; z-index:70; width:100%; padding:0 0 3px 6px; border-top:1px solid #e8e8ec; background:#262732 url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg-subFooter-left.gif") no-repeat 0 0; }
+.subFooter .type { overflow:hidden; width:100%; height:31px; padding:4px 0 0; background:#dcdde0 url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg-subFooter-right.gif") no-repeat 100% 0; }
+.subFooter .type button { float:left; width:30px; height:25px; margin:0 0 0 -1px; }
+.subFooter .type button:first-child { margin:0 0 0 5px; }
+.subFooter .type button.selected { position:relative; z-index:1; width:75px; }
+  html:lang(vi) .subFooter .type button.selected { width:92px; }
+.subFooter .type button.screen { background-position:-116px 0; }
+.subFooter .type button.screen.selected { background-position:-32px -57px; }
+  html:lang(vi) .subFooter .type button.screen.selected { background-position:-351px -579px; }
+  html:lang(en) .subFooter .type button.screen.selected { background-position:-348px -579px; }
+.subFooter .type button.half { background-position:-156px 0; }
+.subFooter .type button.half.selected { background-position:-32px -92px; }
+  html:lang(vi) .subFooter .type button.half.selected { background-position:-351px -614px; }
+  html:lang(en) .subFooter .type button.half.selected { width:119px; background-position:-348px -614px; }
+.subFooter .type button.html { background-position:-196px 0; }
+.subFooter .type button.html.selected { background-position:-32px -127px; }
+  html:lang(vi) .subFooter .type button.html.selected { width:75px; background-position:-351px -649px; }
+  html:lang(en) .subFooter .type button.html.selected { width:75px; background-position:-348px -649px; }
+.subFooter .notice { overflow:hidden; position:absolute; right:60px; top:0; width:400px; height:35px; line-height:35px; }
+.subFooter .notice ul { position:absolute; right:0; top:0; }
+.subFooter .notice li {}
+.subFooter .notice a { color:#868686; font-size:11px; word-spacing:-1px; }
+.subFooter .notice .icoNew { overflow:hidden; float:left; width:26px; height:11px; margin:11px 10px 0 0; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix_ico.png") no-repeat 0 0; text-indent:150%; white-space:nowrap; }
+
+/* Footer */
+#footer { width:214px; height:63px; background-color:#2a2c38; }
+#footer .copyright { padding:12px 0 0 19px; }
+
+/* EC HELP */
+.cTip { display:inline-block; }
+/* EC HELP */
+
+/* Fakescroll */
+.scroll .scroll-track { width:6px; height:6px; border:1px solid #dbdbdb; border-radius:5px; background:#bac0cb; box-shadow:1px 1px 2px #8f949a inset;  }
+.scroll .scroll-track-y { top:0; right:1px; }
+.scroll .scroll-track-x { display:none !important; }
+.scroll .scroll-bar { right:-1px; width:6px; height:6px; border:1px solid #b7b7b9; border-radius:5px; background-color:#f8f8f8; }
+.scroll .scroll-arrow { display:none; }
+
+/* Placeholder */
+.ePlaceholder { float:left; position:relative; padding:0 !important; }
+.ePlaceholder span { display:block; position:absolute; padding:9px 0 0 14px; font-size:12px; color:#c0c3ca; cursor:text; }
+  html:lang(ja) .ePlaceholder span { padding:6px 0 0 14px;  }
+
+/* eHidden */
+.eHidden #aside,
+.eHidden #footer { overflow:hidden; width:1px; height:1px; }
+.eHidden .controlBar { left:3px; }
+.eHidden .controlBar button { background-position:0 -57px; }
+.eHidden #container { margin-left:9px; }
+
+/* icon */
+.icoValidity { display:inline-block; overflow:hidden; width:20px; height:20px; text-indent:150%; white-space:nowrap; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix_ico.png") no-repeat; }
+.icoValidity.success { background-position:0 -20px; }
+.icoValidity.error { background-position:-20px -20px; }
+
+/* button */
+button.default, a.default { display:inline-block; height:25px; padding:0 10px; box-sizing:border-box; border-width:1px; border-style:solid; border-color:#bababa #afafaf #a1a1a1 #adadad; border-radius:2px; box-shadow:1px 1px #fcfdfd; line-height:25px; font-weight:bold; font-size:12px; color:#575757; text-indent:0;
+  background:#fff; background:-moz-linear-gradient(top, #fff 0%, #f8f8f8 100%); background:-webkit-linear-gradient(top, #fff 0%,#f8f8f8 100%); background:linear-gradient(to bottom, #fff 0%,#f8f8f8 100%); }
+button.default:hover, a.default:hover { border-color:#49525e; box-shadow:inset 1px 0 8px rgba(0,0,0,.25), inset -1px 0 8px rgba(0,0,0,.25); color:#adcce4; text-shadow:0 1px rgba(0,0,0,.5); background:#525c6a; }
+
+/*[꾸미기] Layer (ECHOSTING-104742) - 제이쿼리와의 문제로 삭제 시 레이어가 한 번에 뜨지 않음. */
+#layBg { display:none; position:absolute; left:0; top:0; z-index:100; width:100%; height:100%; background:#000; opacity:0.3; filter:alpha(opacity=30); }
+
+.layEditor { display:none; position:absolute; left:50%; top:50%; z-index:110; width:893px; margin:-300px 0 0 -447px; color:#1c1c1c; background:#ededed; border-radius:9px; box-shadow:0 0 8px #7f7f7f; }
+.layEditor h2 { height:34px; padding:19px 0 0 25px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg-layer-title.gif") repeat-x 0 0; border-radius:9px 9px 0 0; color:#313131; font-size:15px; font-family:gulim, sans-serif; }
+  html:lang(ja) .layEditor h2 { font-family:Meiryo,"メイリオ","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",sans-serif; }
+.layEditor .layContainer { overflow:hidden; width:893px; }
+.layEditor .layContainer:after { content: " "; display:block; clear:both; }
+.layEditor .layButton { height:41px; padding:8px 0 0; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg-layer-button.gif") repeat-x 0 0; border-radius:0 0 9px 9px; text-align:center; }
+.layEditor .layClose { position:absolute; right:15px; top:15px; }
+.layEditor .layClose button { width:25px; height:25px; background-position:-322px -170px; }
+
+.layEditor .laySnb { float:left; width:173px; height:489px; border-bottom:1px solid #cdcbcb; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg-layer-snb.gif") repeat-y 0 0; }
+.layEditor .laySnb .tab { padding:1px 0 0; }
+.layEditor .laySnb .tab li { overflow:hidden; width:173px; height:59px; margin:-1px 0 0; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix-btn.png") no-repeat 0 -303px; text-indent:150%; white-space:nowrap; cursor:pointer; }
+  html:lang(ja) .layEditor .laySnb .tab li { background-image:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix_btn_ja_JP.png"); }
+  html:lang(vi) .layEditor .laySnb .tab li { background-image:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix_btn_vi_VN.png"); }
+.layEditor .laySnb .tab li.selected { position:relative; z-index:1; }
+.layEditor .laySnb .tab li.deco { background-position:0 -303px; }
+.layEditor .laySnb .tab li.deco:hover,
+.layEditor .laySnb .tab li.deco.selected { background-position:0 -372px; }
+.layEditor .laySnb .tab li.attr { background-position:-183px -303px; }
+.layEditor .laySnb .tab li.attr:hover,
+.layEditor .laySnb .tab li.attr.selected { background-position:-183px -372px; }
+.layEditor .laySnb .tab li.html { background-position:-366px -303px; }
+.layEditor .laySnb .tab li.html:hover,
+.layEditor .laySnb .tab li.html.selected { background-position:-366px -372px; }
+.layEditor .laySnb .tab li.module { background-position:0 -441px; }
+.layEditor .laySnb .tab li.module:hover,
+.layEditor .laySnb .tab li.module.selected { background-position:0 -510px; }
+
+.layEditor .layContents { overflow:auto; overflow-x:hidden; float:left; width:720px; height:488px; border-top:1px solid #d9d9d9; border-bottom:1px solid #d9d9d9; background:#fff; }
+.layEditor .layContents .info { padding:19px 20px 15px 10px; border-bottom:1px solid #cacaca; word-wrap:break-word; }
+.layEditor .layContent { padding:0 10px 20px; }
+.layEditor .layContent h3 { margin:27px 0 12px; padding:0 0 0 13px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex-ico.png") no-repeat -145px -696px; font-size:13px; font-family:gulim,sans-serif; }
+  html:lang(ja) .layEditor .layContent h3 { font-family:Meiryo,"メイリオ","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",sans-serif; }
+.layEditor .layContent h4 { padding:0 0 0 9px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex-ico.png") no-repeat -198px -596px; color:#1b87d4; font-size:12px; }
+.layEditor .layContent .mTitle { margin:15px 0 7px; }
+.layEditor .layContent .mTitle:first-child { margin-top:0; }
+.layEditor .layContent .mTitle p { margin:7px 0 0; padding:0 0 0 9px; }
+.layEditor .layContent .tab { overflow:hidden; height:32px; border-left:1px solid #c8cdd2; border-right:1px solid #c8cdd2; background:#e9eff5 url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg_layer_tab.gif") repeat-x 0 0; }
+.layEditor .layContent .tab:after { content:" "; display:block; clear:both; }
+.layEditor .layContent .tab li { float:left; border:1px solid #c8cdd2; margin:0 0 0 -1px; }
+.layEditor .layContent .tab li.selected { border-bottom:0; background-color:#fff; }
+.layEditor .layContent .tab li a { display:block; height:22px; padding:8px 36px 0 16px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex_ico_tab.png") no-repeat 100% 13px; color:#1c1c1c; }
+.layEditor .layContent .tab li.selected a { height:23px; background-position:100% -87px; }
+
+.layEditor .layContent .designSelect { position:relative; height:112px; margin:15px 0 0; padding:0 0 0 17px; }
+.layEditor .layContent .designSelect .list { position:relative; overflow:hidden; width:620px; height:112px; margin:0 15px; }
+.layEditor .layContent .designSelect .list ul { position:absolute; left:0; top:0; }
+.layEditor .layContent .designSelect .list li { float:left; margin:0 0 0 4px; }
+.layEditor .layContent .designSelect .list li a { display:block; padding:4px; border:1px solid #d6d6d6; }
+.layEditor .layContent .designSelect .list li a:hover,
+.layEditor .layContent .designSelect .list li.selected a { padding:0; border:5px solid #9cd5f0; }
+.layEditor .layContent .designSelect .list li img { width:140px; height:102px; }
+.layEditor .layContent .designSelect button { position:absolute; top:0; width:15px; height:112px; }
+.layEditor .layContent .designSelect .prev { left:0; background-position:-183px -441px; }
+.layEditor .layContent .designSelect .prev:hover,
+.layEditor .layContent .designSelect .prev.selected { background-position:-233px -441px; }
+.layEditor .layContent .designSelect .next { right:0; background-position:-208px -441px; }
+.layEditor .layContent .designSelect .next:hover,
+.layEditor .layContent .designSelect .next.selected { background-position:-258px -441px; }
+.layEditor .layContent .preview { overflow:hidden; width:100%; margin:30px 0 0; padding:10px 0 0; border-top:1px dotted #999; }
+.layEditor .layContent .preview strong { float:left; width:135px; font-size:11px; font-family:gulim,sans-serif; }
+  html:lang(ja) .layEditor .layContent .preview strong { font-family:Meiryo,"メイリオ","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",sans-serif; }
+.layEditor .layContent .preview p { float:left; }
+.layEditor .layContent .preview.info { margin-top:60px; border:0; text-align:center; color:#999; }
+.layEditor .layContent .preview.info p { float:none; }
+.layEditor .layContent .preview.info span { display:block; margin:20px 0 0; }
+
+.layEditor .layContent .help { margin:10px 0 0; padding:12px 12px 12px 35px; border:1px solid #d7d5df; background:#f1f3f6 url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex_ico_help.png") no-repeat -100px -100px; line-height:160%; }
+.layEditor .layContent .help strong { display:block; color:#257dc1; }
+.layEditor .layContent .help ul { margin:3px 0 0; font-size:11px; line-height:140%; }
+.layEditor .layContent .help li { padding:0 0 0 7px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex_ico_help.png") no-repeat -150px 5px; color:#848996; }
+.layEditor .layContent .help li .txtPoint { color:#f79119; text-decoration:underline; }
+
+.layEditor .layContent .htmlEdit { padding:15px 0 0; }
+.layEditor .layContent .htmlEdit .fTextarea { width:665px; height:370px; padding:15px; border:1px solid #a7a7a7; }
+
+.layEditor .layContent .control { margin:20px 0 0; color:#5c5c5c; }
+.layEditor .layContent .control .fSelect { color:#5c5c5c; }
+.layEditor .layContent .module { overflow:hidden; margin:12px 0 0; border:1px solid #dfdfdf; }
+.layEditor .layContent .module:after { content:" "; display:block; clear:both; }
+.layEditor .layContent .module .list { overflow:auto; float:left; width:189px; height:269px; border-right:1px solid #dfdfdf; }
+.layEditor .layContent .module .list.step1 { width:232px; }
+.layEditor .layContent .module .list.step2 { width:232px; }
+.layEditor .layContent .module .list.step3 { width:232px; border-right:0; }
+.layEditor .layContent .module .list ul { margin:5px 0; }
+.layEditor .layContent .module .list li { line-height:16px; }
+.layEditor .layContent .module .list a { display:block; padding:4px 0 4px 20px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex-ico.png") no-repeat -38px -892px; color:#3b3c40; font-size:11px; word-wrap:break-word; }
+:root .layEditor .layContent .module .list a { padding:6px 0 2px 20px \0/; }
+.layEditor .layContent .module .list a:hover,
+.layEditor .layContent .module .list .selected a { background-color:#7faaf8; color:#fff; }
+.layEditor .layContent .module .thumbnail { overflow:auto; float:left; width:490px; height:251px; padding:9px; }
+.layEditor .layContent .module .thumbnail img { max-width:470px; }
+.layEditor .layContent .module.major { position:relative; padding:0 0 0 189px; }
+.layEditor .layContent .module.major .list { margin:0 0 0 -189px; }
+.layEditor .layContent .module.major .thumbnail { float:none; width:auto; height:269px; padding:0; }
+.layEditor .layContent .module.all {}
+.layEditor .layContent .apps { padding:0 0 20px; border-bottom:1px solid #d0d0d0; }
+.layEditor .layContent .apps ul { overflow:hidden; margin:0 0 20px -15px; }
+.layEditor .layContent .apps ul:after { content:" "; display:block; clear:both; }
+.layEditor .layContent .apps ul li { float:left; width:68px; padding:20px 0 0 28px; text-align:center; }
+.layEditor .layContent .apps ul a { display:block; }
+.layEditor .layContent .apps ul img { width:68px; height:68px; }
+.layEditor .layContent .apps ul strong { display:block; padding:12px 0 0; font-weight:normal; }
+.layEditor .layContent .apps .paginate { height:13px; text-align:center; }
+.layEditor .layContent .apps .paginate:after { content:" "; display:block; clear:both; }
+.layEditor .layContent .apps .paginate p { display:inline-block; }
+.layEditor .layContent .apps .paginate p a { overflow:hidden; display:inline-block; width:17px; height:13px; padding:0; margin:0; border:0; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix-btn.png") no-repeat 0 0; text-indent:150%; white-space:nowrap; }
+.layEditor .layContent .apps .paginate .prev a { background-position:-283px -441px; }
+.layEditor .layContent .apps .paginate .next a { background-position:-310px -441px; }
+  html:lang(ja) .layEditor .layContent .apps .paginate p a { background-image:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix_btn_ja_JP.png"); }
+  html:lang(vi) .layEditor .layContent .apps .paginate p a { background-image:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix_btn_vi_VN.png"); }
+  html:lang(en) .layEditor .layContent .apps .paginate p a { background-image:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix_btn_en_US.png"); }
+.layEditor .layContent .apps .paginate ol { display:inline-block; margin:0 6px; vertical-align:top; }
+.layEditor .layContent .apps .paginate li { display:inline-block; }
+.layEditor .layContent .apps .paginate li a,
+.layEditor .layContent .apps .paginate li strong { display:inline-block; padding:0 5px; }
+.layEditor .layContent .apps .paginate li a { color:#5d5d5d; font-weight:bold; }
+.layEditor .layContent .apps .paginate li a:hover { text-decoration:underline; }
+.layEditor .layContent .apps .paginate li strong { color:#25baff; }
+/*[꾸미기] Layer (ECHOSTING-104742) */
+
+/* Layer - 모듈꾸미기(2014.09) */
+#layBg { display:none; position:absolute; left:0; top:0; z-index:100; width:100%; height:100%; background:#000; opacity:0.3; filter:alpha(opacity=30); }
+
+.moduleEditor { display:none; position:absolute; left:50%; top:50%; z-index:110; width:1020px; margin:-400px 0 0 -510px; color:#1c1c1c; background:#ededed; border-radius:9px; box-shadow:0 0 8px #7f7f7f; }
+.moduleEditor h2 { height:34px; padding:19px 0 0 25px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg-layer-title.gif") repeat-x 0 0; border-radius:9px 9px 0 0; color:#313131; font-size:15px; font-family:gulim, sans-serif; }
+  html:lang(ja) .moduleEditor h2 { font-family:Meiryo,"メイリオ","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",sans-serif; }
+  html:lang(vi) .moduleEditor h2 { font-family:"Helvetica Neue",Helvetica,Arial,sans-serif }
+  html:lang(en) .moduleEditor h2 { font-family:"Helvetica Neue",Helvetica,Arial,sans-serif }
+.moduleEditor.editor .layContent { padding:0 10px; }
+.moduleEditor .layContent h3 { margin:27px 0 12px; padding:0 0 0 13px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex-ico.png") no-repeat -145px -696px; font-size:13px; font-family:gulim,sans-serif; }
+  html:lang(ja) .moduleEditor .layContent h3 { font-family:Meiryo,"メイリオ","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",sans-serif; }
+  html:lang(vi) .moduleEditor .layContent h3 { font-family:"Helvetica Neue",Helvetica,Arial,sans-serif }
+  html:lang(en) .moduleEditor .layContent h3 { font-family:"Helvetica Neue",Helvetica,Arial,sans-serif }
+.moduleEditor .layContent h4 { padding:0 0 0 9px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex-ico.png") no-repeat -198px -596px; color:#1b87d4; font-size:12px; }
+.moduleEditor .layContent h3+.mBoard { margin:0 0 20px; }
+.moduleEditor .layContent .mTitle { margin:15px 0 7px; }
+.moduleEditor .layContent .mTitle:first-child { margin-top:0; }
+.moduleEditor .layContent .mTitle p { margin:7px 0 0; padding:0 0 0 9px; }
+.moduleEditor .layContainer { overflow:hidden; width:1020px; }
+.moduleEditor .layContainer:after { content: " "; display:block; clear:both; }
+.moduleEditor .layButton { height:41px; padding:8px 0 0; background:#f1f1f1 url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg-layer-button.gif") repeat-x 0 0; border-top:1px solid #fff; border-radius:0 0 9px 9px; text-align:center; }
+.moduleEditor .layClose { position:absolute; right:15px; top:15px; }
+.moduleEditor .layClose button { width:25px; height:25px; background-position:-322px -170px; }
+
+.moduleEditor .laySnb { float:left; width:173px; height:699px; border-bottom:1px solid #cdcbcb; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg-layer-snb.gif") repeat-y 0 0; }
+.moduleEditor .laySnb .tab { padding:1px 0 0; }
+.moduleEditor .laySnb .tab li { overflow:hidden; width:173px; height:59px; margin:-1px 0 0; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix-btn.png") no-repeat 0 -303px; text-indent:150%; white-space:nowrap; cursor:pointer; }
+  html:lang(ja) .moduleEditor .laySnb .tab li { background-image:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix_btn_ja_JP.png"); }
+  html:lang(vi) .moduleEditor .laySnb .tab li { background-image:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix_btn_vi_VN.png"); }
+  html:lang(en) .moduleEditor .laySnb .tab li { background-image:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix_btn_en_US.png"); }
+.moduleEditor .laySnb .tab li.selected { position:relative; z-index:1; }
+.moduleEditor .laySnb .tab li.deco { background-position:0 -303px; }
+.moduleEditor .laySnb .tab li.deco:hover,
+.moduleEditor .laySnb .tab li.deco.selected { background-position:0 -372px; }
+.moduleEditor .laySnb .tab li.attr { background-position:-183px -303px; }
+.moduleEditor .laySnb .tab li.attr:hover,
+.moduleEditor .laySnb .tab li.attr.selected { background-position:-183px -372px; }
+.moduleEditor .laySnb .tab li.html { background-position:-366px -303px; }
+.moduleEditor .laySnb .tab li.html:hover,
+.moduleEditor .laySnb .tab li.html.selected { background-position:-366px -372px; }
+.moduleEditor .laySnb .tab li.module { background-position:0 -441px; }
+.moduleEditor .laySnb .tab li.module:hover,
+.moduleEditor .laySnb .tab li.module.selected { background-position:0 -510px; }
+
+.moduleEditor .layContents { position:relative; overflow:auto; overflow-x:hidden; float:left; width:847px; height:698px; border-top:1px solid #d9d9d9; border-bottom:1px solid #d9d9d9; background:#fff; }
+.moduleEditor .layContents .info { padding:0 20px 0 10px; border-bottom:1px solid #cacaca; line-height:38px; word-wrap:break-word; background:#f7f7f7; }
+
+.moduleEditor .shopSetting { z-index:50; position:absolute; left:636px; top:5px; }
+.moduleEditor .shopSetting span { display:inline-block; }
+.moduleEditor .shopSetting .toggle { display:inline-block; padding:0 13px 0 5px; height:28px; border:1px solid #d9d9d9; border-radius:1px; background:#fff; }
+.moduleEditor .shopSetting .toggle .nation { margin:0 13px 0 0; padding:7px 31px 7px 0; border-right:1px solid #d9d9d9; }
+.moduleEditor .shopSetting .toggle .toggleBtn { overflow:hidden; width:7px; height:5px; text-indent:150%; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix-btn.png") no-repeat -250px -17px; }
+  html:lang(ja) .moduleEditor .shopSetting .toggle .toggleBtn { background-image:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix_btn_ja_JP.png"); }
+  html:lang(vi) .moduleEditor .shopSetting .toggle .toggleBtn { background-image:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix_btn_vi_VN.png"); }
+  html:lang(en) .moduleEditor .shopSetting .toggle .toggleBtn { background-image:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix_btn_en_US.png"); }
+.moduleEditor .shopSetting ul.flag { display:none; border:1px solid #d9d9d9; border-top:0; }
+.moduleEditor .shopSetting .flag li { padding:2px 13px 2px 5px; background:#f3f3f3; }
+.moduleEditor .shopSetting .flag li:hover { background:#e6e6e6; }
+.moduleEditor .shopSetting .flag img { margin:0 12px 0 0; width:32px; height:24px; font-size:11px; vertical-align:middle; }
+
+.moduleEditor .layContent .tab { overflow:hidden; margin:0 10px; padding:20px 0; border:0; background:none; }
+.moduleEditor.editor .layContent .tab { margin:0; padding:5px 0; }
+.moduleEditor .layContent .tab:after { content:" "; display:block; clear:both; }
+.moduleEditor .layContent .tab li { position:relative; float:left; margin:0 0 0 -1px; padding:0 1px 0 0; border:none; }
+.moduleEditor .layContent .tab li:before { display:block; content:""; position:absolute; top:1px; width:1px; height:11px; background:#a2a2a2; }
+.moduleEditor .layContent .tab li:first-child a { padding-left:0; }
+.moduleEditor .layContent .tab li a { display:block; height:12px; padding:0 10px; background-image:none; }
+.moduleEditor .layContent .tab li.selected a { color:#0099ff; font-weight:bold; }
+.moduleEditor .layContent .designSelect { position:relative; height:135px; margin:0 0 19px; padding:0 0 0 10px; }
+.moduleEditor .layContent .designSelect .list { position:relative; overflow:hidden; width:778px; height:135px; }
+.moduleEditor .layContent .designSelect .list ul { position:absolute; left:-7px; top:0; }
+.moduleEditor .layContent .designSelect .list li { float:left; margin:0 0 10px 7px; }
+.moduleEditor .layContent .designSelect .list li a { display:block; padding:2px; border:1px solid #d6d6d6; }
+.moduleEditor .layContent .designSelect .list li a:hover,
+.moduleEditor .layContent .designSelect .list li.selected a { padding:0; border:3px solid #33a6ff; }
+.moduleEditor .layContent .designSelect .list li:hover span,
+.moduleEditor .layContent .designSelect .list li.selected span { color:#33a6ff; font-weight:bold; word-spacing:-1px; }
+.moduleEditor .layContent .designSelect .list li img { width:144px; height:106px; }
+.moduleEditor .layContent .designSelect .list li span { display:block; margin:10px 0 0; text-align:center; color:#959595; }
+.moduleEditor .layContent .designSelect button { position:absolute; left:800px; width:21px; height:56px; }
+.moduleEditor .layContent .designSelect .prev { top:-2px; background-position:-437px -441px; }
+.moduleEditor .layContent .designSelect .prev:hover,
+.moduleEditor .layContent .designSelect .prev.selected { background-position:-468px -441px; }
+.moduleEditor .layContent .designSelect .next { top:54px; background-position:-437px -507px; }
+.moduleEditor .layContent .designSelect .next:hover,
+.moduleEditor .layContent .designSelect .next.selected { background-position:-468px -507px; }
+.moduleEditor .layContent .designSelect .all { top:113px; height:22px; background-position:-344px -541px; }
+.moduleEditor .layContent .designSelect .all:hover { background-position:-375px -541px; }
+.moduleEditor .layContent .designSelect .part { background-position:-406px -541px; }
+.moduleEditor .layContent .noMakeUpModule { display:none; padding:90px 0 0; height:116px; font-size:14px; text-align:center; font-weight:bold; }
+.moduleEditor .layContent .preview { overflow:hidden; position:relative; width:100%; padding:14px 0 15px; min-height:397px; text-align:center; border-top:1px solid #bbb; background:#f7f7f7; }
+.moduleEditor .layContent .preview.info { padding-top:60px; height:348px; min-height:348px; border:0; text-align:center; color:#999; }
+.moduleEditor .layContent .preview strong { position:absolute; left:20px; top:14px; font-size:11px; font-family:gulim,sans-serif; color:#636363; }
+  html:lang(ja) .moduleEditor .layContent .preview strong { font-family:Meiryo,"メイリオ","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",sans-serif; }
+.moduleEditor .layContent .preview.info p { float:none; }
+.moduleEditor .layContent .preview.info span { display:block; margin:20px 0 0; }
+    /* PC꾸미기 대응 */
+    .moduleEditor .layContent .preview.pcPreview { padding:40px 0 15px; }
+    .moduleEditor .layContent .preview.pcPreview.info { padding-top:34px; }
+
+.moduleEditor .layContent .help { margin:10px 0 0; padding:12px 12px 12px 20px; border:1px solid #d7d5df; background:#f1f3f6; line-height:160%; }
+.moduleEditor .layContent .help strong { display:block; padding:0 0 0 22px; color:#257dc1; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex_ico_help.png") no-repeat -100px -100px; }
+.moduleEditor .layContent .help ul { margin:3px 0 0; padding:0 0 0 15px; font-size:11px; line-height:140%; }
+.moduleEditor .layContent .help li { padding:0 0 0 7px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex_ico_help.png") no-repeat -150px 5px; color:#848996; }
+.moduleEditor .layContent .help li .txtPoint { color:#f79119; text-decoration:underline; }
+
+.moduleEditor .layContent .htmlEdit { padding:15px 0; }
+.moduleEditor .layContent .htmlEdit .fTextarea { width:780px; height:580px; padding:15px; border:1px solid #a7a7a7; }
+.moduleEditor .layContent .titleResistration ul { padding:10px; border:1px solid #dfdfdf; }
+.moduleEditor .layContent .mForm .addForm { margin:4px 0 0 20px; }
+.moduleEditor .layContent .mForm li { margin:0 0 10px; }
+.moduleEditor .layContent .addForm { display:none; }
+.moduleEditor .layContent .addForm.show { display:block; }
+.moduleEditor .layContent .txtByte { vertical-align:middle; }
+.moduleEditor .layContent .txtByte strong { color:#1b87d4; }
+.moduleEditor .layContent p.txtByte { margin:5px 0 0; }
+.moduleEditor .layContent .txtInfo { margin:5px 0; padding:0 0 0 10px; color:#898989; font-size:11px; }
+.moduleEditor .layContent p.txtInfo { font-style:normal; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex_ico_bar.png") -495px 7px no-repeat; }
+.moduleEditor .layContent ul.txtInfo li { margin:0; padding:2px 0 2px 10px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex_ico_bar.png") -495px 6px no-repeat; }
+.moduleEditor .layContent .typeInfo { margin:20px 0 20px; }
+.moduleEditor .layContent .typeInfo .ico { display:inline-block; margin:0 5px 0 0; width:10px; height:10px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex_tooltip.png") -240px -500px no-repeat; }
+
+.moduleEditor .layContent .control { margin:10px 10px 15px; color:#5c5c5c; }
+.moduleEditor .layContent .control .fSelect { color:#5c5c5c; }
+.moduleEditor .layContent .module { overflow:hidden; margin:12px 0 0; padding:0 10px; border:1px solid #dfdfdf; }
+.moduleEditor .layContent .module:after { content:" "; display:block; clear:both; }
+.moduleEditor .layContent .module .list { overflow:auto; float:left; width:189px; height:519px; border-right:1px solid #dfdfdf; }
+.moduleEditor .layContent .module .list.step1 { width:232px; }
+.moduleEditor .layContent .module .list.step2 { width:232px; }
+.moduleEditor .layContent .module .list.step3 { width:232px; border-right:0; }
+.moduleEditor .layContent .module .list ul { margin:5px 0; }
+.moduleEditor .layContent .module .list li { line-height:16px; }
+.moduleEditor .layContent .module .list a { display:block; padding:4px 0 4px 20px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex-ico.png") no-repeat -38px -892px; color:#3b3c40; font-size:11px; word-wrap:break-word; }
+:root .moduleEditor .layContent .module .list a { padding:6px 0 2px 20px \0/; }
+.moduleEditor .layContent .module .list a:hover,
+.moduleEditor .layContent .module .list .selected a { background-color:#7faaf8; color:#fff; }
+.moduleEditor .layContent .module .thumbnail { overflow:auto; float:left; margin:15px 0; width:490px; height:489px; padding:9px; text-align:center; }
+.moduleEditor .layContent .module .thumbnail img { max-width:470px; }
+.moduleEditor .layContent .module.major { position:relative; padding:0 0 0 189px; }
+.moduleEditor .layContent .module.major .list { margin:0 0 0 -189px; }
+.moduleEditor .layContent .module.major .thumbnail { float:none; width:auto; height:489px; padding:0; }
+.moduleEditor .layContent .module.all {}
+.moduleEditor .layContent .apps { padding:0 0 20px; border-bottom:1px solid #d0d0d0; }
+.moduleEditor .layContent .apps ul { overflow:hidden; margin:0 0 20px -15px; }
+.moduleEditor .layContent .apps ul:after { content:" "; display:block; clear:both; }
+.moduleEditor .layContent .apps ul li { float:left; width:68px; padding:20px 0 0 28px; text-align:center; }
+.moduleEditor .layContent .apps ul a { display:block; }
+.moduleEditor .layContent .apps ul img { width:68px; height:68px; }
+.moduleEditor .layContent .apps ul strong { display:block; padding:12px 0 0; font-weight:normal; }
+.moduleEditor .layContent .apps .paginate { height:13px; text-align:center; }
+.moduleEditor .layContent .apps .paginate:after { content:" "; display:block; clear:both; }
+.moduleEditor .layContent .apps .paginate p { display:inline-block; }
+.moduleEditor .layContent .apps .paginate p a { overflow:hidden; display:inline-block; width:17px; height:13px; padding:0; margin:0; border:0; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix-btn.png") no-repeat 0 0; text-indent:150%; white-space:nowrap; }
+  html:lang(ja) .moduleEditor .layContent .apps .paginate p a { background-image:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix_btn_ja_JP.png"); }
+  html:lang(vi) .moduleEditor .layContent .apps .paginate p a { background-image:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix_btn_vi_VN.png"); }
+  html:lang(en) .moduleEditor .layContent .apps .paginate p a { background-image:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix_btn_en_US.png"); }
+.moduleEditor .layContent .apps .paginate .prev a { background-position:-283px -441px; }
+.moduleEditor .layContent .apps .paginate .next a { background-position:-310px -441px; }
+.moduleEditor .layContent .apps .paginate ol { display:inline-block; margin:0 6px; vertical-align:top; }
+.moduleEditor .layContent .apps .paginate li { display:inline-block; }
+.moduleEditor .layContent .apps .paginate li a,
+.moduleEditor .layContent .apps .paginate li strong { display:inline-block; padding:0 5px; }
+.moduleEditor .layContent .apps .paginate li a { color:#5d5d5d; font-weight:bold; }
+.moduleEditor .layContent .apps .paginate li a:hover { text-decoration:underline; }
+.moduleEditor .layContent .apps .paginate li strong { color:#25baff; }
+
+/* 저해상도 대응 .moduleEditor.lowDisplay */
+.moduleEditor.lowDisplay { margin:-300px 0 0 -490px; }
+.moduleEditor.lowDisplay,
+.moduleEditor.lowDisplay .layContainer { width:980px; }
+.moduleEditor.lowDisplay .layContents { height:495px; }
+.moduleEditor.lowDisplay .laySnb { height:496px; }
+.moduleEditor.lowDisplay .laySnb,
+.moduleEditor.lowDisplay .laySnb .tab li{ width:133px; }
+.moduleEditor.lowDisplay .laySnb .tab li.deco { background-position:-20px -303px; }
+.moduleEditor.lowDisplay .laySnb .tab li.deco:hover,
+.moduleEditor.lowDisplay .laySnb .tab li.deco.selected { background-position:-20px -372px; }
+.moduleEditor.lowDisplay .laySnb .tab li.attr { background-position:-203px -303px; }
+.moduleEditor.lowDisplay .laySnb .tab li.attr:hover,
+.moduleEditor.lowDisplay .laySnb .tab li.attr.selected { background-position:-203px -372px; }
+.moduleEditor.lowDisplay .laySnb .tab li.html { background-position:-386px -303px; }
+.moduleEditor.lowDisplay .laySnb .tab li.html:hover,
+.moduleEditor.lowDisplay .laySnb .tab li.html.selected { background-position:-386px -372px; }
+.moduleEditor.lowDisplay .laySnb .tab li.module { background-position:-20px -441px; }
+.moduleEditor.lowDisplay .laySnb .tab li.module:hover,
+.moduleEditor.lowDisplay .laySnb .tab li.module.selected { background-position:-20px -510px; }
+.moduleEditor.lowDisplay .layContent .module .list { height:310px; }
+.moduleEditor.lowDisplay .layContent .module.major .thumbnail { height:280px; }
+.moduleEditor.lowDisplay .layContent .htmlEdit .fTextarea { width:780px; height:390px; }
+
+.moduleEditor.lowDisplay .attrArea.itemDisplay,
+.moduleEditor.lowDisplay .attrArea.itemDisplay .list{ height:357px; min-height:357px; }
+
+.attrArea { position:relative; margin:0 0 15px; min-height:360px; padding:0 0 0 228px; }
+.attrArea.itemDisplay { height:550px; min-height:550px; }
+.attrArea .directory { overflow:auto; position:absolute; top:0; left:0; width:204px; height:346px; padding:6px 7px; border:1px solid #dfdfdf; }
+.attrArea .directory .hitarea { float:left; width:20px; height:20px; margin:0 0 0 -20px; background:url("//img.echosting.cafe24.com/smartAdmin/img/common/ico_explorer.gif") no-repeat -64px -22px; cursor:pointer; }
+.attrArea .directory .expandable-hitarea { background-position:-80px 0px; }
+.attrArea .directory a { text-decoration:none; }
+.attrArea .directory li { padding:1px 0 1px 20px; background:url("//img.echosting.cafe24.com/smartAdmin/img/common/bg_explorer.gif") no-repeat 0 0; line-height:1.6; }
+.attrArea .directory li .gTitle { display:block; cursor:pointer; }
+.attrArea .directory li .title {}
+.attrArea .directory .title:hover,
+.attrArea .directory .hover { text-decoration:underline; }
+.attrArea .directory li.selected .title { color:#1b87d4; font-weight:bold; letter-spacing:-1px; }
+.attrArea .directory li.selected li .title { color:#1c1c1c; font-weight:normal; letter-spacing:0; }
+.attrArea .directory li.collapsable,
+.attrArea .directory li.expandable { background-position:0 -58px; }
+.attrArea .directory li.last { background-position:0 -1766px }
+.attrArea .directory li.lastCollapsable,
+.attrArea .directory li.lastExpandable { background-image:url("//img.echosting.cafe24.com/smartAdmin/img/common/ico_explorer.gif"); }
+.attrArea .directory li.lastCollapsable { background-position:0 -111px }
+.attrArea .directory li.lastExpandable { background-position:-32px -67px }
+.attrArea .directory div.lastCollapsable-hitarea,
+.attrArea .directory div.lastExpandable-hitarea { background-position:0 0; }
+
+.attrArea .list { overflow:auto; position:absolute; top:0; left:0; width:216px; height:358px; border:1px solid #dfdfdf; }
+.attrArea.itemDisplay .list { height:550px; }
+.attrArea .list ul { margin:5px 0; }
+.attrArea .list li { line-height:16px; }
+.attrArea .list a { display:block; padding:4px 0 4px 20px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex-ico.png") no-repeat -38px -892px; color:#3b3c40; font-size:11px; word-wrap:break-word; }
+:root .attrArea .list a { padding:6px 0 2px 20px \0/; }
+.attrArea .list a:hover,
+.attrArea .list .selected a { background-color:#7faaf8; color:#fff; }
+
+/* 표시설정안내 */
+.displayHelp { padding:10px 25px; color:#6f6f6f; border-top:1px solid #d8d8d8; }
+.displayHelp .title { display:block; margin:0 0 10px; padding:0 0 0 22px; color:#555; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex_ico_help.png") no-repeat -50px -200px; }
+.displayHelp .helpInfo { margin:0 0 10px; padding:0 0 0 22px; }
+.displayHelp ul { padding:0 0 0 22px; }
+.displayHelp li { line-height:1.5em; }
+
+/* Layer - laypop */
+.layPop { position:absolute; left:50%; top:50%; z-index:110; color:#1c1c1c; background:#fff; border-radius:9px; box-shadow:0 0 8px #7f7f7f; }
+#layFavorite.layPop { display:none; width:390px; margin:-108px 0 0 -170px; }
+#laySearch.layPop { display:none; width:460px; margin:-190px 0 0 -230px; }
+#layCreat.layPop,
+#layCreat2.layPop { display:none; width:340px; margin:-245px 0 0 -170px; }
+#layCreat2.layPop { margin-top:-235px; }
+#layRecent.layPop { display:none; width:842px; margin:-310px 0 0 -421px; }
+#layHttps.layPop { display:none; width:862px; margin:-291px 0 0 -431px; }
+#layHttps.layPop .layButton { line-height:26px; }
+#layHttps.layPop .btnSubmit { margin-left:5px; }
+#layLoading.layPop { display:none; position:absolute; z-index:110; width:338px; top:50%; left:50%; margin:-77px 0 0 -166px; padding:0 0 27px 0; border:1px solid #adadad; box-shadow:inset 0 0 0 1px #f6f7f8; border-radius:2px; text-align:center; background:#e3e5e8; }
+#layLoading.layPop { position:fixed; top:50%; left:50%; margin:-77px 0 0 -166px; }
+#layLoading.layPop p { margin:39px 0 21px; color:#4c5255; }
+
+
+.layPop h2 { height:29px; padding:15px 0 0 16px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg-layer-title2.gif") repeat-x 0 0; border-radius:9px 9px 0 0; color:#2b2b2b; font-size:14px; font-family:gulim,sans-serif; }
+  html:lang(ja) .layPop h2 { font-family:Meiryo,"メイリオ","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",sans-serif; }
+  html:lang(vi) .layPop h2 { font-family:"Helvetica Neue",Helvetica,Arial,sans-serif }
+  html:lang(en) .layPop h2 { font-family:"Helvetica Neue",Helvetica,Arial,sans-serif }
+.layPop .layButton { height:32px; padding:7px 0 0; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg-layer-button2.gif") repeat-x 0 0; border-radius:0 0 9px 9px; text-align:center; }
+.layPop .layClose { position:absolute; right:8px; top:9px; }
+.layPop .layClose button { width:25px; height:25px; background-position:-322px -170px; }
+
+.layPop .layContent { padding:20px 20px 25px; }
+.layPop .layContent h3,
+.layPop .layContent .title { padding:0 0 0 12px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex-ico.png") no-repeat -95px -797px; font-size:12px; }
+.layPop .layContent h3 { margin:0 0 10px; }
+.layPop .layContent .title span { margin:0 4px 0 0; padding:0 9px 0 0; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/bul-layer-title.gif") no-repeat 100% 0; }
+.layPop .layContent h3 strong { margin:0 0 0 6px; padding:0 0 0 7px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/bul-layer-title2.gif") no-repeat 0 1px; color:#659cff; }
+.layPop .layContent .fText { height:23px; padding:0 0 0 4px; border:1px solid #6d6d6d; border-right-color:#c6c6c6; border-bottom-color:#c6c6c6; color:#659cff; font-weight:bold; font-size:12px; height:18px \0/; padding:5px 0 0 4px \0/; }
+.layPop .layContent legend { *border:1px solid #fff; }
+
+.layPop .layContent .name { display:block; margin:0 0 12px; padding:0 0 12px; border-bottom:1px solid #e5e5e5; }
+.layPop .layContent .path { overflow:hidden; width:100%; }
+.layPop .layContent .path strong { float:left; margin:0 10px 0 0; padding:0 9px 0 13px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/bul-layer-title.gif") no-repeat 100% 0; font-weight:normal; font-size:11px; }
+.layPop .layContent .path span { float:left; width:235px; font-weight:bold; word-wrap:break-word; }
+
+.layPop .layContent .result { overflow:hidden; overflow-y:auto; max-height:93px; padding:8px 0; border:1px solid #d6d6d6; }
+.layPop .layContent p.result { padding:15px; }
+.layPop .layContent .result li { padding:0 0 0 12px; }
+.layPop .layContent .result li .eSelected { color:#1aa0dd; font-weight:bold; letter-spacing:-1px; }
+.layPop .layContent .result li label { overflow:hidden; display:block; }
+.layPop .layContent .result li label input { float:left; margin:6px 0 0; }
+.layPop .layContent .result li span { float:left; width:333px; padding:5px 0 5px 32px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex-ico-file.png") no-repeat -324px 6px; word-wrap:break-word; }
+.layPop .layContent .result li.html span { background-position:-324px 6px; }
+.layPop .layContent .result li.xml span { background-position:-274px -94px; }
+.layPop .layContent .result li.js span { background-position:-224px -194px; }
+.layPop .layContent .result li.css span { background-position:-174px -294px; }
+.layPop .layContent .result li.check span { background-position:-124px -394px; }
+.layPop .layContent .result li.main span { background-position:-74px -494px; }
+.layPop .layContent .result li.etc span { background-position:-24px -594px; }
+
+.layPop .layContent .fileName { display:block; margin:0 0 3px; }
+.layPop .layContent .fileName strong { display:inline-block; width:70px; padding:0 0 0 13px; }
+.layPop .layContent .fileName .fText { color:#1c1c1c; font-weight:normal; }
+.layPop .layContent .example { padding:3px 0 8px 86px; }
+
+.layPop .layContent .recentInfo { margin:0 0 20px 12px;  color:#656565; }
+.layPop .layContent .recentFile { margin:0 0 20px 12px; padding:0 0 0 8px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex-ico.png") no-repeat -198px -595px; color:#686868; }
+.layPop .layContent .recentFile strong { }
+.layPop .layContent .htmlView { overflow:auto; width:800px; height:400px; border:1px solid #e6e6e6; }
+
+.layPop .directory { overflow:auto; width:298px; height:210px; margin:0 0 20px; padding:5px 0 0; border:1px solid #d6d6d6; background:#eef4f8; white-space:nowrap; }
+.layPop .directory ul { margin:0 0 10px; padding:0 0 0 10px; }
+.layPop .directory ul ul { margin:0; }
+.layPop .directory li { margin:7px 0 0; }
+.layPop .directory li a { display:inline-block; margin:0 0 0 15px; padding:0 0 0 6px; font-family:gulim,sans-serif; }
+  html:lang(ja) .layPop .directory li a { font-family:Meiryo,"メイリオ","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",sans-serif; }
+  html:lang(vi) .layPop .directory li a { font-family:"Helvetica Neue",Helvetica,Arial,sans-serif }
+  html:lang(en) .layPop .directory li a { font-family:"Helvetica Neue",Helvetica,Arial,sans-serif }
+.layPop .directory li a:hover { color:#1aa0dd; font-weight:bold; letter-spacing:-1px; text-decoration:underline; }
+.layPop .directory li a span { color:#909090; font-family:verdana,sans-serif; font-size:11px; }
+.layPop .directory li a:hover span { color:#1aa0dd; }
+.layPop .directory li.folder { background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex-ico-directory.png") no-repeat 0 -200px; }
+.layPop .directory li.folder.selected { background-position:-100px -100px; }
+
+/* Layer - text */
+.txtGuide { margin:0 0 17px; }
+
+/* Layer - button */
+.btnEm, .btnEm span,
+.btnSubmit, .btnSubmit span,
+.btnCancel, .btnCancel span {
+    display:inline-block; position:relative; overflow:visible; margin:0; padding:0; border:0;
+    background-image:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex-btn-bg.png"); text-decoration:none; vertical-align:top; word-spacing:-1px; white-space:nowrap;
+}
+.btnEm, .btnSubmit, .btnCancel { margin-right:4px; }
+.btnEm span, .btnSubmit span, .btnCancel span { left:4px; cursor:pointer; }
+
+.btnEm, .btnEm span { height:22px; line-height:23px; line-height:25px \0/; }
+.btnEm { background-position:0 -58px; color:#153475; font-size:11px; }
+.btnEm span { padding:0 10px 0 6px; background-position:100% -58px; }
+.btnEm:hover, .btnEm.selected { background-position:0 -90px; color:#1b87d4; text-decoration:none; }
+.btnEm:hover span, .btnEm.selected span { background-position:100% -90px; }
+
+.btnSubmit, .btnSubmit span { height:33px; line-height:33px; line-height:35px \0/; }
+.btnSubmit { background-position:0 0; color:#fff; font-size:14px; font-weight:bold; font-family:gulim, sans-serif; }
+  html:lang(ja) .btnSubmit { font-family:Meiryo,"メイリオ","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",sans-serif; }
+  html:lang(vi) .btnSubmit { font-family:"Helvetica Neue",Helvetica,Arial,sans-serif }
+  html:lang(en) .btnSubmit { font-family:"Helvetica Neue",Helvetica,Arial,sans-serif }
+.btnSubmit span { padding:0 27px 0 23px; background-position:100% 0; }
+
+.btnCancel, .btnCancel span { height:33px; line-height:33px; line-height:35px \0/; }
+.btnCancel { background-position:0 -43px; color:#1c1c1c; font-size:14px; font-weight:bold; font-family:gulim, sans-serif; }
+  html:lang(ja) .btnCancel { font-family:Meiryo,"メイリオ","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",sans-serif; }
+  html:lang(vi) .btnCancel { font-family:"Helvetica Neue",Helvetica,Arial,sans-serif }
+  html:lang(en) .btnCancel { font-family:"Helvetica Neue",Helvetica,Arial,sans-serif }
+.btnCancel span { padding:0 27px 0 23px; background-position:100% -43px; }
+
+.layPop .btnSubmit, .layPop .btnSubmit span { height:25px; line-height:25px; line-height:27px \0/; }
+.layPop .btnSubmit { background-position:0 -86px; font-size:12px; }
+.layPop .btnSubmit span { padding:0 11px 0 7px; background-position:100% -86px; }
+
+.layPop .btnCancel, .layPop .btnCancel span { height:25px; line-height:25px; line-height:27px \0/; }
+.layPop .btnCancel { background-position:0 -121px; color:#575757; font-size:12px; }
+.layPop .btnCancel span { padding:0 11px 0 7px; background-position:100% -121px; }
+.btnMove,
+.btnOption { width:21px; height:21px; background-image:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix_btn_ico.png"); background-repeat:no-repeat;}
+.btnOption { width:20px; height:19px; }
+.icoPrev { background-position:-31px -116px; }
+.icoNext { background-position:-62px -116px; }
+.add { background-position:-30px -29px; }
+.del { background-position:-60px -29px; }
+
+/* Layer -text style */
+.icoBold, .icoItalic {  display:block; overflow:hidden; width:20px; height:19px; padding:0; margin:0; background-image:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix-btn.png"); background-repeat:no-repeat; text-indent:150%; white-space:nowrap; vertical-align:top; font-size:0; line-height:0; }
+  html:lang(ja) .icoBold, html:lang(ja) .icoItalic { background-image:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix_btn_ja_JP.png"); }
+  html:lang(vi) .icoBold, html:lang(ja) .icoItalic { background-image:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix_btn_vi_VN.png"); }
+  html:lang(en) .icoBold, html:lang(en) .icoItalic { background-image:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix_btn_en_US.png"); }
+.icoBold { background-position:-283px -481px; }
+.icoBold.selected { background-position:-283px -510px; }
+.icoItalic { background-position:-313px -481px; }
+.icoItalic.selected { background-position:-313px -510px; }
+
+/* Layer - frame */
+.frame {}
+.frame img { padding:2px; border:1px solid #ccc; background-color:#fff; }
+.gFrame { position:relative; margin:8px 0 0; }
+.gFrame .gWidth.type1 { position:absolute; left:0; top:0; }
+.gFrame .frameSelect { padding:0 0 0 50px; }
+.gFrame .fFile { display:block; margin:0 0 5px; }
+
+/* Layer */
+.mBoard table { border:1px solid #dadadc; }
+.mBoard thead th { background-color:#f5f3f4; color:#1b1b1b; padding:10px 0 7px 10px; text-align:center; font-weight:normal; border-left:1px solid #ebebeb; }
+.mBoard tbody th,
+.mBoard tbody td { border-left:1px solid #ebebeb; border-top:1px solid #ebebeb; line-height:140%; }
+.mBoard tbody th { background-color:#f5f3f4; color:#1b1b1b; padding:10px 0 7px 10px; text-align:left; font-weight:normal; }
+.mBoard tbody td { padding:10px 10px 7px; }
+.mBoard thead th:first-child,
+.mBoard tbody th:first-child,
+.mBoard tbody td:first-child { border-left:0; }
+.mBoard tbody tr:first-child th,
+.mBoard tbody tr:first-child td { border-top:1px solid #dadadc; }
+.mBoard tbody td label { padding-right:20px; }
+.mBoard .txtEm { color:#1b87d4;  }
+.mBoard .txtWarn { color:#ff6d01; }
+.mBoard .gFormInfo { margin:5px 0 0; color:#898989; font-size:11px; font-style:normal; }
+.mBoard p.gFormInfo,
+.mBoard ul.gFormInfo { margin:5px 0 0 0; }
+.mBoard p.gFormInfo,
+.mBoard span.gFormInfo { padding:0 0 0 10px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex-ico.png") -345px -294px no-repeat; }
+.mBoard ul.gFormInfo li { padding:0 0 0 10px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex-ico.png") -345px -294px no-repeat; }
+.mBoard .center { text-align:center; }
+.mBoard .chk { width:32px; }
+
+.mBoard .fText { border:1px solid #a7a7a7; border-right-color:#cfcfcf; border-bottom-color:#cfcfcf; font-size:12px; padding:0 0 0 4px; height:20px; line-height:20px; }
+.mBoard .fSelect { height:22px; }
+.mBoard .fChk input[type=radio],
+.mBoard .fChk input[type=checkbox] { width:13px; height:13px; vertical-align:-2px; margin:0 2px 0 0; }
+.mBoard .fFile { height:22px; border:1px solid #a7a7a7; border-right-color:#cfcfcf; border-bottom-color:#cfcfcf; background:#fff; color:#1c1c1c; font:12px/18px '돋움',Dotum; }
+.mBoard .eSelected { font-weight:bold; letter-spacing:-1px; }
+.mBoard .gSingle { display:block; margin-top:5px; }
+.mBoard .gWidth { display:inline-block; vertical-align:middle; }
+.mBoard .gWidth.type1 { width:40px; }
+.mBoard .gWidth.type2 { width:50px; }
+.mBoard .gTxt,
+.mBoard .gImg { margin:5px 0 0; }
+.mBoard .gImg .fFile { display:block; margin:0 0 5px; }
+.mBoard .gSelectList { margin:-8px 0 0; }
+.mBoard .gSelectList li { margin:8px 0 0; }
+.mBoard .fChk + .gSelectList { margin-top:-3px; }
+
+.mBoardArea .mBoard table { border:0; }
+.mBoardArea .mBoard.typeHead { border-right:1px solid #bbc0c4; }
+.mBoardArea .mBoard.typeHead th { padding:9px 9px 7px; border:1px solid #bbc0c4; border-right:0; color:#80878d; text-align:center; vertical-align:middle; }
+.mBoardArea .mBoard.typeHead th:last-child { padding-right:26px; }
+.mBoardArea .mBoard.typeBody { position:relative; overflow-x:hidden; overflow-y:scroll; max-height:349px; min-height:100px; border-bottom:1px solid #d9dadc; border-right:1px solid #d9dadc; }
+.mBoardArea .mBoard.typeBody:before { content:""; position:absolute; top:0; left:0; width:1px; height:100%; background:#d9dadc; }
+.mBoardArea .mBoard.typeBody td { border:0; border-bottom:1px solid #d9dadc; border-left:1px solid #d9dadc; }
+.mBoardArea .mBoard.typeBody .empty { padding:50px 0; text-align:center; }
+.mBoardArea .mBoard.typeBody .empty td { border-bottom-width:0; }
+.mBoardArea .mBoard.typeBody .mBoard .empty td { border-bottom-width:1px; }
+.mBoardArea .mBoard.typeBody td td { border-top:1px solid #d9dadc; border-right:1px solid #d9dadc;}
+.mBoardArea .mBoard.typeBody.gClearHeight { max-height:none; }
+.mBoardArea .mBoard.typeFoot { margin-top:-1px; }
+.mBoardArea .mBoard.typeFoot th { border:1px solid #d9dadc; color:#80878d; font-weight:bold; background-color:#fafafa; }
+.mBoardArea .mBoard.typeFoot td { border:1px solid #d9dadc; background-color:#fafafa; }
+
+/* Layer */
+.colorpicker { z-index:120; }
+.mColorPicker { display:inline-block; }
+.mColorPicker .selected { display:inline-block; width:23px; height:20px; border:1px solid #a7a7a7; border-right:0; border-bottom-color:#cfcfcf; vertical-align:top; }
+.mColorPicker .selector { display:inline-block; width:26px; height:20px; vertical-align:middle; cursor:pointer; }
+.mColorPicker .selector a { display:inline-block; overflow:hidden; width:26px; height:20px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix-btn.png") no-repeat -397px -441px; text-indent:150%; vertical-align:middle; white-space:nowrap; cursor:pointer; }
+  html:lang(ja) .mColorPicker .selector a { background-image:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix_btn_ja_JP.png"); }
+  html:lang(vi) .mColorPicker .selector a { background-image:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix_btn_vi_VN.png"); }
+  html:lang(en) .mColorPicker .selector a { background-image:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix_btn_en_US.png"); }
+
+/* mList */
+span.mList { margin:10px 0 0 0; color:#898989; font-size:11px; line-height:1.5; }
+span.mList.txtMore { font-size:12px; }
+p.mList { margin:10px 0 0 0; padding:0 0 0 9px; color:#898989; font-size:11px; line-height:1.5; background:url("//img.echosting.cafe24.com/suio/sflex_ico.png") no-repeat -495px 7px; }
+ul.mList { margin:10px 0 0 0; }
+ul.mList li { margin:0; padding:0 0 0 9px; color:#898989; font-size:11px; line-height:1.5; text-align:left; background:url("//img.echosting.cafe24.com/suio/sflex_ico.png") no-repeat -495px 7px; }
+ul.mList > li > ul > li { background-position:-346px -294px; }
+ol.mList { margin:10px 0 0 15px; }
+ol.mList li { list-style:decimal; color:#898989; font-size:11px; line-height:1.5; }
+ol.mList li li { list-style:none; }
+ul.mList > li > ol > li { padding:0; list-style:decimal; background:none; }
+.mList li.empty { padding:0; background:none; }
+    /* mList + typeMore */
+    p.mList.typeMore,
+    ul.mList.typeMore > li { color:#1c1c1c; font-size:12px; text-align:left; background-position:-445px -93px; }
+    ol.mList.typeMore > li { color:#1c1c1c; font-size:12px; }
+    /* mList + typeMore + gIndent */
+    p.mList.typeMore.gIndent,
+    ul.mList.typeMore.gIndent { margin-left:15px; }
+    ol.mList.typeMore.gIndent { margin-left:30px; }
+    /* mList Reset */
+    .mTooltip .mList { margin:0 0 0 6px; }
+    .mTooltip .mList li > ol > li, .mTooltip .mList li.empty li, .mTooltip ol.mList ol > li { margin-left:9px; }
+    .mTooltip ul.mList ol > li { margin-left:0; }
+    .mTooltip ol.mList > li, .mTooltip ul.mList > li > ol > li, .mTooltip ul.mList li li > ol > li { padding-left:0; background:none; list-style:none; }
+    .mTooltip ol.mList ul > li { margin-left:9px; padding-left:9px; background:url("//img.echosting.cafe24.com/suio/sflex_ico.png") no-repeat -495px 7px; }
+
+/* mTooltip */
+.mTooltip { position:relative; display:inline-block; width:15px; height:14px; vertical-align:middle; text-align:left; }
+.mTooltip .tooltip { display:none; position:absolute; left:-13px; top:20px; text-align:left; font-weight:normal; letter-spacing:normal; border:1px solid #6f94bf; background-color:#fff; border-radius:3px; }
+.mTooltip .close { position:absolute; right:12px; top:12px; overflow:hidden; width:12px; height:11px; text-indent:150%; white-space:nowrap; background:url('//img.echosting.cafe24.com/suio/sflex_tooltip.png') -438px -100px no-repeat; }
+.mTooltip .edge { position:absolute; left:14px; top:-6px; width:9px; height:6px; font-size:0; line-height:0; background:url('//img.echosting.cafe24.com/suio/sflex_tooltip.png') -391px -200px no-repeat; }
+.mTooltip .content { padding:10px; line-height:1.2; }
+.mTooltip .titleEm,
+.mTooltip .titleTip { display:block; margin:10px 20px 7px 0; padding:0 0 0 15px; border-bottom:0; color:#1c1c1c; font-size:12px; background:url('//img.echosting.cafe24.com/suio/sflex_tooltip.png') -240px -499px no-repeat; }
+.mTooltip .titleEm:first-child { margin-top:0; }
+.mTooltip .titleTip { padding-left:28px; background-position:-28px -900px; }
+.mTooltip .title { display:block; margin:10px 0 5px; padding:0 0 0 15px; color:#6f6f6f; font-size:11px; word-spacing:-1px; background:url('//img.echosting.cafe24.com/suio/sflex_tooltip.png') -191px -595px no-repeat; }
+    /* 오른쪽 좌표 지정상태 */
+    .mTooltip .tooltip.posRight { left:13px; }
+    .mTooltip .tooltip.posRight .edge { left:auto; right:2px;  }
+    /* 아이콘 공통 */
+    .mTooltip .icon { position:absolute; overflow:hidden; width:100%; height:100%; text-indent:150%; white-space:nowrap; cursor:pointer; background:url('//img.echosting.cafe24.com/suio/sflex_tooltip.png') -486px 0 no-repeat; }
+    /* 시스템폰트 */
+    .mTooltip.typeText { width:auto; }
+    .mTooltip.typeText .text { font-size:11px; line-height:11px; color:#666; vertical-align:top; background:none; }
+    /* show */
+    .mTooltip.show { z-index:80; }
+    /* width */
+    .mTooltip.gSmall .tooltip { width:258px; }
+    .mTooltip.gMedium .tooltip { width:348px; }
+    .mTooltip.gLarge .tooltip { width:508px; }
+.mTooltip button { text-indent:0; }
+
+/* 찾기/바꾸기 */
+.replaceArea { z-index:50; position:absolute; top:0; left:0; right:0; padding:0 0 0 12px; height:35px; border-bottom:1px solid #9598a4; background:#c2c3cb; }
+.replaceArea .editor { position:relative; display:inline-block; min-width:473px; width:48%; padding:5px 60px 0 0; font-size:0; line-height:0; vertical-align:top; box-sizing:border-box; }
+.replaceArea .editor .inputBox { display:inline-block; min-width:197px; width:48%; margin:0 2% 0 0; font-size:12px; line-height:1.2; box-sizing:border-box; vertical-align:top; }
+.replaceArea .editor .inputBox input,
+.replaceArea .editor .inputBox textarea { position:relative; display:inline-block; min-width:197px; width:100%; min-height:25px; height:25px; padding:2px 6px; line-height:1.5; word-spacing:-1px; font-family:dotum, "돋움", sans-serif; vertical-align:top; box-sizing:border-box; border:1px solid #2e92ff; background:#fff; }
+  html:lang(ja) .replaceArea .editor .inputBox input,
+  html:lang(ja) .replaceArea .editor .inputBox textarea { font-family:Meiryo,"メイリオ","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",sans-serif; }
+  html:lang(vi) .replaceArea .editor .inputBox input,
+  html:lang(vi) .replaceArea .editor .inputBox textarea { font-family:"Helvetica Neue",Helvetica,Arial,sans-serif }
+  html:lang(en) .replaceArea .editor .inputBox input,
+  html:lang(en) .replaceArea .editor .inputBox textarea { font-family:"Helvetica Neue",Helvetica,Arial,sans-serif }
+.replaceArea .editor .button { position:absolute; top:5px; right:0; display:inline-block; height:23px; line-height:23px; padding:0 5px; letter-spacing:1px; font-size:11px; color:#fff; border:1px solid #262b31; border-radius:2px;
+    background:#5f6473;
+    background:-moz-linear-gradient(top, #5f6473 0%, #464c59 100%);
+    background:-webkit-linear-gradient(top, #5f6473 0%,#464c59 100%);
+    background:linear-gradient(to bottom, #5f6473 0%,#464c59 100%);
+}
+.replaceArea .setting { display:inline-block; margin:10px 0 0 28px; }
+.replaceArea .setting dt,
+.replaceArea .setting dd { display:inline-block; font-size:11px; }
+.replaceArea .setting dt { font-weight:bold; color:#3a3c40; }
+.replaceArea .setting dt:before { content:""; display:inline-block; width:1px; height:16px; margin:0 8px 0 2px; vertical-align:middle; border-left:1px solid #d9dae7; background:#9899a7; }
+.replaceArea .setting dt:first-child:before { content:none; display:none; }
+.replaceArea .mTooltip { position:absolute; top:12px; right:40px; }
+.replaceArea .mTooltip .text { color:#3a3c40; font-weight:bold; text-decoration:underline; }
+.replaceArea .btnClose { position:absolute; top:13px; right:13px; width:9px; height:9px; background-position:-248px -57px; }
+
+/* 모바일편집창 */
+.mobile .subHeader .menu .control button.devicePreview { margin:0 0 0 5px; width:103px; }
+.mobile .subHeader .menu .control .devicePreview { background-position:-32px -579px; }
+.mobile .subHeader .menu .control .devicePreview:hover,
+.mobile .subHeader .menu .control .devicePreview.selected { background-position:-32px -614px; }
+.mobile .subHeader .menu .control .devicePreview.disabled { background-position:-32px -649px; cursor:default; }
+.mobile .subHeader .menu .control .deviceList { display:none; position:absolute; margin:-1px 0 0 5px; padding:4px 14px; border:1px solid #c0c4c8; background:#fcfcfd; }
+.mobile .subHeader .menu .control .deviceList li { float:none; padding:10px 0; }
+.mobile .subHeader .menu .control .deviceList li a { font-weight:bold; color:#2f383f; }
+.mobile .subHeader .menu .control .deviceList li a:hover,
+.mobile .subHeader .menu .control .deviceList li a:hover span{ color:#21a4f9; text-decoration:underline; }
+.mobile .subHeader .menu .control .deviceList li a span { font-weight:normal; color:#93969a; }
+
+.mobile .content { position:relative; }
+.mobile .content:after { content:""; display:block; clear:both; }
+.mobile .content .previewArea { overflow-y:scroll; float:left; padding:0 0 17px; background:#ddd; text-align:center; }
+.mobile .content .codeArea { position:relative; margin-top:0; border-top:30px solid #fff; box-sizing: border-box; }
+.mobile .content .codeArea.deselected { top:0; margin-top:0; border-top:0; }
+
+.mobile .divisionArea { position:absolute; top:0 !important; left:0; padding:290px 4px 0; width:15px; height:100%; border-left:1px solid #cacacd; text-align:center; box-sizing:border-box; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/bg_ctrlSection_mobile.gif") repeat-y 0 0; }
+.mobile .divisionArea span { overflow:hidden; display:inline-block; width:6px; height:17px; text-indent:150%; color:transparent; white-space:nowrap; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix_ico_division.png") no-repeat -50px -50px; }
+
+.mobile .codeArea .ctrlSection { z-index:3; position:absolute; top:-30px; height:30px; border-top:0; border-bottom:1px solid #7a828a; background-color:#d7dade; box-sizing:border-box; }
+.mobile .codeArea.deselected .ctrlSection { top:0; right:0; width:144px; height:30px; border-top:0; border-left:1px solid #989ca8; }
+.mobile .codeArea .ctrlSection strong { overflow:hidden; display:inline-block; margin:9px 0 0 15px; height:11px; color:transparent; text-indent:-9999px; background-image:url("//img.echosting.cafe24.com/smartAdmin/img/editor/txt_Extensions.png"); background-repeat:no-repeat; }
+.mobile .codeArea .ctrlSection strong.html { width:38px; background-position:0 0; }
+.mobile .codeArea .ctrlSection strong.css { width:27px; background-position:-50px -50px; }
+.mobile .codeArea .ctrlSection strong.js { width:16px; background-position:-100px -100px; }
+.mobile .codeArea .ctrlSection .control { overflow:hidden; position:absolute; right:10px; top:3px; }
+.mobile .codeArea .ctrlSection .control li { float:left; margin:0 0 0 6px; width:24px; height:22px; }
+.mobile .codeArea .ctrlSection .control li a { display:block; width:100%; height:100%; background-image:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sflex_ico_control.png"); background-repeat:no-repeat; }
+.mobile .codeArea .ctrlSection .control .expand a { background-position:0 0; }
+.mobile .codeArea .ctrlSection .control .expand a:hover { background-position:-50px -100px; }
+.mobile .codeArea .ctrlSection .control .reduction a { background-position:-100px -200px; }
+.mobile .codeArea .ctrlSection .control .reduction a:hover { background-position:-150px -300px; }
+.mobile .codeArea .ctrlSection .control li span { overflow:hidden; color:transparent; text-indent:150%; font-size:0; }
+
+.mobile .content .field .editorBtn { padding:0 35px 0 0; }
+.mobile .content .field .editorBtn .arrowBtn { position:absolute; right:20px; top:8px; }
+.mobile .content .field .editorBtn .arrowBtn a { display:block; overflow:hidden; width:28px; height:18px; background:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix-btn.png") no-repeat; text-indent:150%; cursor:pointer; }
+  html:lang(ja) .mobile .content .field .editorBtn .arrowBtn a { background-image:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix_btn_ja_JP.png"); }
+  html:lang(vi) .mobile .content .field .editorBtn .arrowBtn a { background-image:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix_btn_vi_VN.png"); }
+  html:lang(en) .mobile .content .field .editorBtn .arrowBtn a { background-image:url("//img.echosting.cafe24.com/smartAdmin/img/editor/sfix_btn_en_US.png"); }
+.mobile .content .field .editorBtn .arrowBtn .up { background-position:-366px -481px; }
+.mobile .content .field .editorBtn .arrowBtn .up:hover { background-position:-399px -481px; }
+.mobile .content .field .editorBtn .arrowBtn .down { background-position:-366px -509px; }
+.mobile .content .field .editorBtn .arrowBtn .down:hover { background-position:-399px -509px; }
